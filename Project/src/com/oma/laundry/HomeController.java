@@ -9,4 +9,8 @@ public class HomeController {
 	public String showMyPage() {
 		return "layanan";
 	}
+	@RequestMapping("/about")
+	public String showAbout() {
+		return "about";
+	}
 }
