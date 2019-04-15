@@ -10,16 +10,26 @@
     <script src="<c:url value="/resources/js/main.js" />"></script>
 <meta charset="ISO-8859-1">
 <title>About</title>
+<style>
+.verticalcenter {
+    display: table-cell;
+    height: 400px;
+    vertical-align: middle;
+}
+</style>
 </head>
 <body>
 <div class="container">
 	<h1>About</h1>
 	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+	<br>
 	<div class="row">
-		<div class="col-4">
-			<img src="la.jpg" alt="foto laundry">
+		<div class="col-sm-4">
+			<div class="verticalcenter">
+				<img src="<c:url value="/images/la.jpg"/>" alt="foto laundry" height="300" width="330" align="middle">
+			</div>
 		</div>
-		<div class="col-8">
+		<div class="col-sm-8">
 			<h2>OUR HISTORY</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed felis varius turpis lobortis consequat eget id lectus. Praesent tempus ex quam, ac blandit tellus accumsan et. Etiam et risus id orci euismod aliquet non et libero. Proin et enim nec ex lacinia molestie non vel orci. Nam ipsum odio, iaculis vitae bibendum sed, rhoncus tincidunt leo. Curabitur pulvinar mauris nibh, posuere tristique lectus elementum eget. In iaculis metus malesuada consectetur aliquam. Duis hendrerit, enim ac fermentum maximus, purus enim vulputate nisl, vel malesuada tellus tortor vitae sem. Curabitur fringilla porttitor dui eu accumsan. Sed ac molestie enim, ut volutpat dui. Duis ultrices, magna sit amet tristique pulvinar, nulla justo interdum est, sit amet iaculis libero enim sed lacus. Donec nec sapien mauris. Sed ut lacus a justo mattis fringilla et in lacus. Nulla mattis dignissim metus, ac feugiat diam tempus ac. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 		
