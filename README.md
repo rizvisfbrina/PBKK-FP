@@ -1,4 +1,4 @@
-# Sistem Informasi Laundry
+# Sistem Informasi OMA Laundry
 
 ### Anggota Kelompok :
 
