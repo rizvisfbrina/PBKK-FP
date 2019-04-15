@@ -9,6 +9,7 @@
 
 ### Deskripsi
 OMA Laundry merupakan aplikasi laundry berbasis web dengan tujuan untuk memudahkan pengusaha laundry dalam mengelola order.
+
 **Pelanggan**
 ```
  Kebutuhan Pelanggan :
