@@ -44,6 +44,8 @@ OMA Laundry merupakan aplikasi laundry berbasis web dengan tujuan untuk memudahk
 ![Sitemap](https://user-images.githubusercontent.com/32903576/56175526-bd710a00-6021-11e9-8ad7-1cfa4849cb9a.png)
 
 ### Tampilan Web
+Halaman Home
+![home1](https://github.com/rizvisfbrina/PBKK-FP/blob/master/home1.PNG)
 Halaman Register
 ![image](https://user-images.githubusercontent.com/32873367/56181247-d46e2700-6036-11e9-942b-fe4ee93161bd.png)
 Halaman Login
