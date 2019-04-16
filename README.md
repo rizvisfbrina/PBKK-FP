@@ -51,3 +51,7 @@ Halaman About
 ![about](https://user-images.githubusercontent.com/32903576/56177437-d4ffc100-6028-11e9-9d3a-08028f4b3de9.PNG)
 Halaman Layanan
 ![Capture](https://user-images.githubusercontent.com/32903576/56177434-cf09e000-6028-11e9-899a-b3d2495159da.PNG)
+Halaman Register
+![image](https://user-images.githubusercontent.com/32873367/56181247-d46e2700-6036-11e9-942b-fe4ee93161bd.png)
+Halaman Login
+![image](https://user-images.githubusercontent.com/32873367/56181332-40e92600-6037-11e9-92c9-52262a4547c1.png)
