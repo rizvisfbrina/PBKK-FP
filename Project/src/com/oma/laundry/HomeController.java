@@ -36,7 +36,6 @@ public class HomeController {
 	public String showLayanan() {
 		return "layanan";
 	}
-<<<<<<< HEAD
 	@RequestMapping("/prosesLogin")
 	public ModelAndView prosesLogin(@Valid @ModelAttribute("model") Login model, BindingResult bindres, RedirectAttributes redir) {
 		if(bindres.hasErrors()) {
@@ -101,14 +100,5 @@ public class HomeController {
 		}
 		
 		return mav;
-=======
-	@RequestMapping("/login")
-	public String showLogin() {
-		return "login";
-	}
-	@RequestMapping("/registrasi")
-	public String showRegistrasi() {
-		return "register";
->>>>>>> f8075f91378d0d59a926ade5ad839ded272be13b
 	}
 }
