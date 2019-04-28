@@ -10,6 +10,28 @@
     <script src="<c:url value="/resources/js/main.js" />"></script>
 <meta charset="ISO-8859-1">
 <title>Layanan</title>
+<style>
+.columns {
+  float: left;
+  width: 33.3%;
+  padding: 8px;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  font-size: 22px;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+}
+</style>
 </head>
 <body>
 <div class="container">
@@ -18,28 +40,41 @@
 	<div class="row">
 		<div class="col-8">
 			<h2>Paket</h2>
-			<table class="table">
-			        <tr>
-			            <td>Cuci Setrika</td>
-			            <td>Rp. 5000/kg</td>
-			        </tr>
-			        <tr>
-			            <td>Cuci Basah</td>
-			            <td>Rp. 1000/kg</td>
-			        </tr>
-			        <tr>
-			            <td>Setrika</td>
-			            <td>Rp. 2000/kg</td>
-			        </tr>
-			        <tr>
-			            <td>Cuci Jeans</td>
-			            <td>Rp. 7000/kg</td>
-			        </tr>
-			        <tr>
-			            <td>Cuci Spring Bed</td>
-			            <td>Rp. 20000/kg</td>
-			        </tr>
-			   </table>
+		</div>
+	</div>
+	<div class="columns">
+		<div class="card">
+		  <br><h2>Cuci Setrika</h2>
+		  <p>Lorem jeamsun denim lorem jeansum.</p>
+		  <p class="price">Rp. 5000/kg</p>
+		</div>
+	</div>
+	<div class="columns">
+		<div class="card">
+		  <br><h2>Cuci Basah</h2>
+		  <p>Lorem jeamsun denim lorem jeansum.</p>
+		  <p class="price">Rp. 1000/kg</p>
+		</div>
+	</div>
+	<div class="columns">
+		<div class="card">
+		  <br><h2>Setrika</h2>
+		  <p>Lorem jeamsun denim lorem jeansum.</p>
+		  <p class="price">Rp. 2000/kg</p>
+		</div>
+	</div>
+	<div class="columns">
+		<div class="card">
+		  <br><h2>Cuci Jeans</h2>
+		  <p>Lorem jeamsun denim lorem jeansum.</p>
+		  <p class="price">Rp. 7000/kg</p>
+		</div>
+	</div>
+	<div class="columns">
+		<div class="card">
+		  <br><h2>Cuci Spring Bed</h2>
+		  <p>Lorem jeamsun denim lorem jeansum.</p>
+		  <p class="price">Rp. 20000/kg</p>
 		</div>
 	</div>
 </div>
