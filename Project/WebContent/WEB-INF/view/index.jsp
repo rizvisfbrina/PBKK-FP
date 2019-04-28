@@ -35,13 +35,13 @@
             			<a class="nav-link js-scroll-trigger" href="#services">Layanan</a>
           			</li>
           			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="#portfolio">About</a>
+            			<a class="nav-link js-scroll-trigger" href="about">About</a>
           			</li>
 			        <li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="#about">Login</a>
+			        	<a class="nav-link js-scroll-trigger" href="login">Login</a>
 			       	</li>
 			        <li class="nav-item">
-			            <a class="nav-link js-scroll-trigger" href="#team">Registrasi</a>
+			            <a class="nav-link js-scroll-trigger" href="registrasi">Registrasi</a>
 			        </li>
 				</ul>
 			</div>
@@ -93,6 +93,11 @@
           			<h4 class="service-heading">Setrika</h4>
           			<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
         		</div>
+      		</div>
+      		<div class="row text-center">
+      			<div class="col-lg-12">
+      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="layanan">more</a>
+      			</div>
       		</div>
     	</div>
 	</section>

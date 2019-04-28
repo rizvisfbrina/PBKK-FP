@@ -17,4 +17,12 @@ public class HomeController {
 	public String showLayanan() {
 		return "layanan";
 	}
+	@RequestMapping("/login")
+	public String showLogin() {
+		return "login";
+	}
+	@RequestMapping("/registrasi")
+	public String showRegistrasi() {
+		return "register";
+	}
 }
