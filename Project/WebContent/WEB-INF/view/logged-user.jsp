@@ -12,17 +12,19 @@
 <h1>Daftar Pemesanan</h1>
 <table style="width:100%">
 	<tr>
-	    <th>ID</th>
+	    <th>ID Pesan</th>
 	    <th>Jenis</th> 
 	    <th>Harga</th>
 	    <th>Kilo</th>
+	    <th>Status</th>
  	 </tr>
- 	 <c:forEach var="value" items="${layanan }"> 
+ 	 <c:forEach var="value" items="${pemesanan }"> 
 	 	 <tr>
-	 	 	<th>${value.idlay}</th>
-	 	 	<th>${value.nama}</th>
+	 	 	<th>${value.idpesan}</th>
+	 	 	<th>${value.jenisLayanan}</th>
 		    <th>${value.harga}</th>
 		    <th>${value.kilo}</th>
+		    <th>${value.status}</th>
 	 	 </tr>
 	 </c:forEach>
 </table>
