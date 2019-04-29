@@ -20,7 +20,22 @@ public class Layanan {
 	@Column(name="kilo")
 	private int kilo;
 	
+<<<<<<< HEAD
 	public int getIdlay() {
+=======
+	@Column(name="lynket")
+	private String ket;
+	
+	public String getKet() {
+		return ket;
+	}
+
+	public void setKet(String ket) {
+		this.ket = ket;
+	}
+
+	public String getIdlay() {
+>>>>>>> be4fd44075c9cb01c58f1fe317986a480d9d9f48
 		return idlay;
 	}
 
@@ -52,21 +67,27 @@ public class Layanan {
 		this.kilo = kilo;
 	}
 
+<<<<<<< HEAD
 	public Layanan(int idlay, String nama, int harga, int kilo) {
 		super();
+=======
+
+	public Layanan(String idlay, String nama, String harga, String kilo, String ket) {
+>>>>>>> be4fd44075c9cb01c58f1fe317986a480d9d9f48
 		this.idlay = idlay;
 		this.nama = nama;
 		this.harga = harga;
 		this.kilo = kilo;
+		this.ket = ket;
 	}
 
 	public Layanan() {
-		super();
 	}
 
 	@Override
 	public String toString() {
-		return "Layanan [idlay=" + idlay + ", nama=" + nama + ", harga=" + harga + ", kilo=" + kilo + "]";
+		return "Layanan [idlay=" + idlay + ", nama=" + nama + ", harga=" + harga + ", kilo=" + kilo + ", ket=" + ket
+				+ "]";
 	}
 	
 }
