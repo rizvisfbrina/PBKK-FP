@@ -92,12 +92,12 @@ public class HomeController {
 			ses.beginTransaction();
 			
 			//get pelanggan
-			List<Layanan> daftarlayanan = ses.createQuery("from Layanan").list();
+			List<Pemesanan> daftarpesanan = ses.createQuery("from Pemesanan").list();
 			//commit transaction
 			
 			ses.getTransaction().commit();
 			
-			mav.addObject("layanan", daftarlayanan);
+			mav.addObject("pemesanan", daftarpesanan);
 		}
 		finally {
 			s.close();
