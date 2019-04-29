@@ -41,13 +41,11 @@
 <body>
 <div class="container">
 	<h1>Layanan</h1>
-	<table style="width:100%">
-		<tr>
-		    <th>ID</th>
-		    <th>Jenis</th> 
-		    <th>Harga</th>
-		    <th>Kilo</th>
-		 </tr>
+	<div class="row">
+		<div class="col-8">
+			<h2>Paket</h2>
+		</div>
+	</div>
 	<%
 		SessionFactory s = new Configuration()
 				.configure("hibernate.xml")
@@ -62,13 +60,13 @@
 			List<Layanan> daftarlayanan = ses.createQuery("from Layanan").list();
 			for(Layanan lyn : daftarlayanan){
 	%>
-		<tr>
-	 	 	<td><%=lyn.getIdlay()%></td>
-	 	 	<td><%=lyn.getNama()%></td>
-		    <td><%=lyn.getHarga()%></td>
-		    <td><%=lyn.getKilo()%></td>
-	 	 </tr>
-	</table>
+	 	<div class="columns">
+			<div class="card">
+		  		<br><h2><%=lyn.getNama()%></h2>
+		  		<p><%=lyn.getKet()%></p>
+		  		<p class="price">Rp. <%=lyn.getHarga()%>/kg</p>
+			</div>
+		</div>
 	<%
 			}
 			ses.getTransaction().commit();
@@ -78,47 +76,6 @@
 		}
 	%>
 	
-	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-	<div class="row">
-		<div class="col-8">
-			<h2>Paket</h2>
-		</div>
-	</div>
-	<div class="columns">
-		<div class="card">
-		  <br><h2>Cuci Setrika</h2>
-		  <p>Lorem jeamsun denim lorem jeansum.</p>
-		  <p class="price">Rp. 5000/kg</p>
-		</div>
-	</div>
-	<div class="columns">
-		<div class="card">
-		  <br><h2>Cuci Basah</h2>
-		  <p>Lorem jeamsun denim lorem jeansum.</p>
-		  <p class="price">Rp. 1000/kg</p>
-		</div>
-	</div>
-	<div class="columns">
-		<div class="card">
-		  <br><h2>Setrika</h2>
-		  <p>Lorem jeamsun denim lorem jeansum.</p>
-		  <p class="price">Rp. 2000/kg</p>
-		</div>
-	</div>
-	<div class="columns">
-		<div class="card">
-		  <br><h2>Cuci Jeans</h2>
-		  <p>Lorem jeamsun denim lorem jeansum.</p>
-		  <p class="price">Rp. 7000/kg</p>
-		</div>
-	</div>
-	<div class="columns">
-		<div class="card">
-		  <br><h2>Cuci Spring Bed</h2>
-		  <p>Lorem jeamsun denim lorem jeansum.</p>
-		  <p class="price">Rp. 20000/kg</p>
-		</div>
-	</div>
 </div>
 </body>
 </html>
