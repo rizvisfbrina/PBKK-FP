@@ -1,7 +1,7 @@
 package model;
 
 public class Login {
-	private String id;
+	private int id;
 	private String password;
 	private String nama;
 	private String email;
@@ -10,7 +10,7 @@ public class Login {
 	
 	public Login() {};
 	
-	public Login(String id, String password, String nama, String email, String nohp, String role) {
+	public Login(int id, String password, String nama, String email, String nohp, String role) {
 		this.id = id;
 		this.password = password;
 		this.nama = nama;
@@ -36,10 +36,10 @@ public class Login {
 	public void setNohp(String nohp) {
 		this.nohp = nohp;
 	}
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getPassword() {

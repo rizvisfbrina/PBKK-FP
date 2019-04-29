@@ -12,7 +12,7 @@ public class Pemesanan {
 	
 	@Id
 	@Column(name="idpesan")
-	private String idpesan;
+	private int idpesan;
 	
 	@Column(name="harga")
 	private String harga;
@@ -26,7 +26,7 @@ public class Pemesanan {
 	@Column(name="status")
 	private String status;
 
-	public Pemesanan(String jenisLayanan, String idpesan, String harga, String kilo, String total, String status) {
+	public Pemesanan(String jenisLayanan, int idpesan, String harga, String kilo, String total, String status) {
 		super();
 		this.jenisLayanan = jenisLayanan;
 		this.idpesan = idpesan;
@@ -48,11 +48,11 @@ public class Pemesanan {
 		this.jenisLayanan = jenisLayanan;
 	}
 
-	public String getIdpesan() {
+	public int getIdpesan() {
 		return idpesan;
 	}
 
-	public void setIdpesan(String idpesan) {
+	public void setIdpesan(int idpesan) {
 		this.idpesan = idpesan;
 	}
 

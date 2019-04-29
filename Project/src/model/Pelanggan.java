@@ -12,7 +12,7 @@ public class Pelanggan {
 	
 	@Id
 	@Column(name="idpel")
-	private String idpel;
+	private int idpel;
 	
 	@Column(name="email")
 	private String email;
@@ -37,10 +37,10 @@ public class Pelanggan {
 	public void setNama(String nama) {
 		this.nama = nama;
 	}
-	public String getIdpel() {
+	public int getIdpel() {
 		return idpel;
 	}
-	public void setIdpel(String idpel) {
+	public void setIdpel(int idpel) {
 		this.idpel = idpel;
 	}
 	public String getEmail() {
@@ -57,7 +57,7 @@ public class Pelanggan {
 	}
 	
 	public Pelanggan() {}
-	public Pelanggan(String nama, String idpel, String email, String nohp, String password) {
+	public Pelanggan(String nama, int idpel, String email, String nohp, String password) {
 		this.nama = nama;
 		this.idpel = idpel;
 		this.email = email;

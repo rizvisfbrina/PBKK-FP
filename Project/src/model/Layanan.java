@@ -9,22 +9,22 @@ import javax.persistence.Table;
 public class Layanan {
 	@Id
 	@Column(name="idlay")
-	private String idlay;
+	private int idlay;
 	
 	@Column(name="nama")
 	private String nama;
 	
 	@Column(name="harga")
-	private String harga;
+	private int harga;
 	
 	@Column(name="kilo")
-	private String kilo;
+	private int kilo;
 	
-	public String getIdlay() {
+	public int getIdlay() {
 		return idlay;
 	}
 
-	public void setIdlay(String idlay) {
+	public void setIdlay(int idlay) {
 		this.idlay = idlay;
 	}
 
@@ -36,23 +36,23 @@ public class Layanan {
 		this.nama = nama;
 	}
 
-	public String getHarga() {
+	public int getHarga() {
 		return harga;
 	}
 
-	public void setHarga(String harga) {
+	public void setHarga(int harga) {
 		this.harga = harga;
 	}
 
-	public String getKilo() {
+	public int getKilo() {
 		return kilo;
 	}
 
-	public void setKilo(String kilo) {
+	public void setKilo(int kilo) {
 		this.kilo = kilo;
 	}
 
-	public Layanan(String idlay, String nama, String harga, String kilo) {
+	public Layanan(int idlay, String nama, int harga, int kilo) {
 		super();
 		this.idlay = idlay;
 		this.nama = nama;

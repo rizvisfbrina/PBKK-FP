@@ -32,36 +32,50 @@
       		<div class="collapse navbar-collapse" id="navbarResponsive">
         		<ul class="navbar-nav text-uppercase ml-auto">
           			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="#">Pesanan</a>
+            			<a class="nav-link js-scroll-trigger" href="#">Ubah Data</a>
+          			</li>
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" href="#">Tambah Karyawan</a>
           			</li>
 			        <li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="#">Logout</a>
+			        	<a class="nav-link js-scroll-trigger" href="#">Tambah Pemesanan</a>
 			       	</li>
-			        
+			        <li class="nav-item">
+			            <a class="nav-link js-scroll-trigger" href="#">Tambah Layanan</a>
+			        </li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<h1>Daftar Pemesanan</h1>
+	<!-- Header -->
+<!-- 	<header class="masthead">
+    	<div class="container">
+      		<div class="intro-text">
+        		<div class="intro-lead-in">Tingkatkan Layanan Cucian Anda!</div>
+        		<div class="intro-heading text-uppercase">OMA Laundry</div>
+        		<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+      		</div>
+    	</div>
+	</header> -->
+	<h1>Daftar Pelanggan</h1>
 	<table style="width:100%">
-	 <tr>
-	     <th>ID Pesan</th>
-	     <th>Jenis</th> 
-	     <th>Harga</th>
-	     <th>Kilo</th>
-	     <th>Status</th>
-	   </tr>
-	   <c:forEach var="value" items="${pemesanan }"> 
-	    <tr>
-	     <th>${value.idpesan}</th>
-	     <th>${value.jenisLayanan}</th>
-	      <th>${value.harga}</th>
-	      <th>${value.kilo}</th>
-	      <th>${value.status}</th>
-	      <th><a href="#">Hapus</a> <a href="#">Pesan</a></th>
-	    </tr>
-	  </c:forEach>
+		<tr>
+		    <th>ID Pelanggan</th>
+		    <th>Nama</th> 
+		    <th>Email</th>
+		    <th>No. HP</th>
+		    <th>Action</th>
+	 	 </tr>
+	 	 <c:forEach var="value" items="${pelanggan }"> 
+		 	 <tr>
+		 	 	<th>${value.idpel }</th>
+			    <th>${value.nama }</th>
+			    <th>${value.email }</th> 
+			    <th>${value.nohp }</th>
+			    <th><a href="#">Hapus</a></th>
+		 	 </tr>
+		 </c:forEach>
 	</table>
 	
 	<!-- Footer -->

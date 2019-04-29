@@ -32,38 +32,52 @@
       		<div class="collapse navbar-collapse" id="navbarResponsive">
         		<ul class="navbar-nav text-uppercase ml-auto">
           			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="#">Pesanan</a>
+            			<a class="nav-link js-scroll-trigger" href="#">Ubah Data</a>
+          			</li>
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" href="/OMALaundry/add-admin">Tambah Karyawan</a>
+          			</li>
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" href="#">Tambah Layanan</a>
           			</li>
 			        <li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="#">Logout</a>
+			        	<a class="nav-link js-scroll-trigger" href="/OMALaundry/daftaruser-admin/?id=${model.id_admin }">Daftar Pelanggan</a>
 			       	</li>
-			        
+			        <li class="nav-item">
+			            <a class="nav-link js-scroll-trigger" href="#">Logout</a>
+			        </li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<h1>Daftar Pemesanan</h1>
-	<table style="width:100%">
-	 <tr>
-	     <th>ID Pesan</th>
-	     <th>Jenis</th> 
-	     <th>Harga</th>
-	     <th>Kilo</th>
-	     <th>Status</th>
-	   </tr>
-	   <c:forEach var="value" items="${pemesanan }"> 
-	    <tr>
-	     <th>${value.idpesan}</th>
-	     <th>${value.jenisLayanan}</th>
-	      <th>${value.harga}</th>
-	      <th>${value.kilo}</th>
-	      <th>${value.status}</th>
-	      <th><a href="#">Hapus</a> <a href="#">Pesan</a></th>
-	    </tr>
-	  </c:forEach>
-	</table>
+	<input type="button" value="Tambah Karyawan"
+	onclick="window.location.href='halamanTambahKaryawan'; return false"
+	class="add-button"/>
 	
+	<h1>Daftar Order</h1>
+	<table style="width:100%">
+		<tr>
+		    <th>ID Pesan</th>
+		    <th>Jenis Layanan</th> 
+		    <th>Harga</th>
+		    <th>Kilo</th>
+		    <th>Total</th>
+		    <th>Status</th>
+		    <th>Action</th>
+	 	 </tr>
+	 	 <c:forEach var="value" items="${pemesanan }"> 
+		 	 <tr>
+		 	 	<th>${value.idpesan }</th>
+			    <th>${value.jenislayanan }</th>
+			    <th>${value.harga }</th> 
+			    <th>${value.kilo }</th> 
+			    <th>${value.total }</th>
+			    <th>${value.status }</th>
+			    <th><a href="#">Hapus</a> <a href="updateorder/?id=${value.idpesan}&id_a=${model.idadmin } }">Ubah</a></th>
+		 	 </tr>
+		 </c:forEach>
+	</table>
 	<!-- Footer -->
 	<footer>
     	<div class="container">

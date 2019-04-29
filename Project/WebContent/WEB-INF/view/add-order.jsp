@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,37 +32,55 @@
       		<div class="collapse navbar-collapse" id="navbarResponsive">
         		<ul class="navbar-nav text-uppercase ml-auto">
           			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="#">Pesanan</a>
+            			<a class="nav-link js-scroll-trigger" href="#">Ubah Data</a>
+          			</li>
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" href="/OMALaundry/add-admin">Tambah Karyawan</a>
+          			</li>
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" href="#">Tambah Layanan</a>
           			</li>
 			        <li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="#">Logout</a>
+			        	<a class="nav-link js-scroll-trigger" href="/OMALaundry/daftaruser-admin/?id=${model.id_admin }">Daftar Pelanggan</a>
 			       	</li>
-			        
+			        <li class="nav-item">
+			            <a class="nav-link js-scroll-trigger" href="#">Logout</a>
+			        </li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<h1>Daftar Pemesanan</h1>
-	<table style="width:100%">
-	 <tr>
-	     <th>ID Pesan</th>
-	     <th>Jenis</th> 
-	     <th>Harga</th>
-	     <th>Kilo</th>
-	     <th>Status</th>
-	   </tr>
-	   <c:forEach var="value" items="${pemesanan }"> 
-	    <tr>
-	     <th>${value.idpesan}</th>
-	     <th>${value.jenisLayanan}</th>
-	      <th>${value.harga}</th>
-	      <th>${value.kilo}</th>
-	      <th>${value.status}</th>
-	      <th><a href="#">Hapus</a> <a href="#">Pesan</a></th>
-	    </tr>
-	  </c:forEach>
-	</table>
+	  <form:form action="daftarPesanan" method="POST" modelAttribute="model">
+	  	<div  class="d-flex justify-content-center align-items-center container ">
+			ID Pesan: <br />
+			<form:input class="input--style-2" type="text" path="idpesan"/> <br /><br />
+		</div>
+		<div  class="d-flex justify-content-center align-items-center container ">
+			Jenis Layanan : <br />
+			<form:input class="input--style-2" type="text" path="jenislayanan"/> <br /><br />
+		</div>
+		<div  class="d-flex justify-content-center align-items-center container ">
+			Harga: <br />
+			<form:input class="input--style-2" type="text" path="harga"/> <br /><br />
+		</div>
+		<div  class="d-flex justify-content-center align-items-center container ">
+			Kilo : <br />
+			<form:input class="input--style-2" type="text" path="kilo"/> <br /><br />
+		</div>
+		<div  class="d-flex justify-content-center align-items-center container ">
+			Total : <br />
+			<form:input class="input--style-2" type="text" path="total"/> <br /><br />
+		</div>
+		<div  class="d-flex justify-content-center align-items-center container ">
+			Status: <br />
+			<form:input class="input--style-2" type="text" path="status"/> <br /><br />
+		</div>  
+		<div class="checkbox d-flex justify-content-center align-items-center container ">
+		  	<button type="button" class="btn btn-success">Submit</button>
+		</div>
+	</form:form>
+  	
 	
 	<!-- Footer -->
 	<footer>
