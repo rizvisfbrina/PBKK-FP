@@ -20,9 +20,6 @@ public class Layanan {
 	@Column(name="kilo")
 	private int kilo;
 	
-<<<<<<< HEAD
-	public int getIdlay() {
-=======
 	@Column(name="lynket")
 	private String ket;
 	
@@ -33,12 +30,11 @@ public class Layanan {
 	public void setKet(String ket) {
 		this.ket = ket;
 	}
-
-	public String getIdlay() {
->>>>>>> be4fd44075c9cb01c58f1fe317986a480d9d9f48
+	
+	public int getIdlay() {
 		return idlay;
 	}
-
+	
 	public void setIdlay(int idlay) {
 		this.idlay = idlay;
 	}
@@ -67,13 +63,7 @@ public class Layanan {
 		this.kilo = kilo;
 	}
 
-<<<<<<< HEAD
-	public Layanan(int idlay, String nama, int harga, int kilo) {
-		super();
-=======
-
-	public Layanan(String idlay, String nama, String harga, String kilo, String ket) {
->>>>>>> be4fd44075c9cb01c58f1fe317986a480d9d9f48
+	public Layanan(int idlay, String nama, int harga, int kilo, String ket) {
 		this.idlay = idlay;
 		this.nama = nama;
 		this.harga = harga;
