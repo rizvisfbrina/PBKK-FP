@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="model.Akun"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,38 +21,19 @@
 </head>
 <body id="page-top">
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    	<div class="container">
-      		<a class="navbar-brand js-scroll-trigger" href="#page-top">Admin - OMA Laundry</a>
-      		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        		Menu <i class="fas fa-bars"></i>
-      		</button>
-      		<div class="collapse navbar-collapse" id="navbarResponsive">
-        		<ul class="navbar-nav text-uppercase ml-auto">
-          			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="#services">Layanan</a>
-          			</li>
-          			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="about">About</a>
-          			</li>
-			        <li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="login">Login</a>
-			       	</li>
-			        <li class="nav-item">
-			            <a class="nav-link js-scroll-trigger" href="registrasi">Registrasi</a>
-			        </li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<jsp:include page="../navigation.jsp" />
 
 	<!-- Layanan -->
 	<section id="services">
     	<div class="container">
+    	<%-- <%!Akun ad = null;%>
+		<%
+			if (ad != null && ad.getRole() == "Admin" {
+		%> --%>
     		<div class="row">
         		<div class="col-lg-12 text-center">
-          			<h2 class="section-heading text-uppercase">Layanan</h2>
-          			<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          			<h2 class="section-heading">Admin Homepage</h2>
+          			<h3 class="section-subheading text-muted">Atur website dengan menu :</h3>
         		</div>
       		</div>
     		<div class="row text-center">
@@ -58,13 +41,26 @@
       				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="layanan">Tambah Layanan</a>
       			</div>
       			<div class="col-lg-4">
-      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="layanan">Tambah Pegawai</a>
+      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="pegawai">Tambah Pegawai</a>
       			</div>
       			<div class="col-lg-4">
-      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="layanan">more</a>
+      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="laporan">Laporan Transaksi</a>
       			</div>
       		</div>  
-    	</div>
+    	<%-- 
+    	<%
+			} else{
+		%> --%>
+			<div class="row">
+        		<div class="col-lg-12 text-center">
+          			<h2 class="section-heading">Admin Homepage</h2>
+          			<h3 class="section-subheading text-muted">Login dahulu sebagai admin</h3>
+        		</div>
+      		</div>
+		<%-- <%
+			}
+		%> --%>
+		</div>
 	</section>
  
 	<!-- Footer -->

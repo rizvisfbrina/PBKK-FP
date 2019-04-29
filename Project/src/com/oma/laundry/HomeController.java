@@ -2,6 +2,7 @@ package com.oma.laundry;
 
 import model.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -9,6 +10,7 @@ import javax.validation.Valid;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,15 +21,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 @Controller
 public class HomeController {
-	@RequestMapping("/")
+	@RequestMapping(value = {"/a","/"})
 	public String showMyPage() {
 		return "index";
 	}
 	@RequestMapping("/login")
 	public String loginPage(Model model){
-		model.addAttribute("model", new Login());
+		model.addAttribute("model", new Akun());
 		return "login";
 	}
 	@RequestMapping("/about")
@@ -70,7 +73,7 @@ public class HomeController {
 		}
 	}
 	@RequestMapping("/prosesLogin")
-	public ModelAndView prosesLogin(@Valid @ModelAttribute("model") Login model, BindingResult bindres, RedirectAttributes redir) {
+	public ModelAndView prosesLogin(@Valid @ModelAttribute("model") Akun model, BindingResult bindres, RedirectAttributes redir){
 		if(bindres.hasErrors()) {
 			ModelAndView mav = new ModelAndView("/login");
 			return mav;
@@ -79,15 +82,22 @@ public class HomeController {
 			if(model.getRole().equals("Pelanggan")) {
 				SessionFactory s = new Configuration()
 						.configure("hibernate.xml")
-						.addAnnotatedClass(Pelanggan.class)
+						.addAnnotatedClass(Akun.class)
 						.buildSessionFactory();
 				Session ses = s.getCurrentSession();
 				try {
 					ses.beginTransaction();
-
-					Pelanggan user = ses.get(Pelanggan.class, model.getId() );
-					if(user.getPassword().equals(model.getPassword())) {
-						ModelAndView mav = new ModelAndView("redirect:/home-plg");
+					
+					//get pelanggan
+					Query<Integer> a = ses.createQuery("select id from Akun where username = :uname");
+					a.setParameter("uname", model.getUsername());
+					Integer res = (Integer)a.uniqueResult();
+					Akun user = ses.get(Akun.class, res);
+					
+					System.out.println("halo");
+					if(user.getUsername().equals(model.getUsername()) && user.getPassword().equals(model.getPassword())) {
+						System.out.println("halo22");
+						ModelAndView mav = new ModelAndView("redirect:/");
 						redir.addFlashAttribute("model", user);
 						return mav;
 					}
@@ -104,16 +114,21 @@ public class HomeController {
 			else if(model.getRole().equals("Admin")){
 				SessionFactory s = new Configuration()
 						.configure("hibernate.xml")
-						.addAnnotatedClass(Admin.class)
+						.addAnnotatedClass(Akun.class)
 						.buildSessionFactory();
 				Session ses = s.getCurrentSession();
 				try {
 					ses.beginTransaction();
 					
-					Admin admin = ses.get(Admin.class, model.getId() );
-					if(admin.getPassword().equals(model.getPassword())) {
-						ModelAndView mav = new ModelAndView("redirect:/home-admin");
-						redir.addFlashAttribute("model", admin);
+					//get admin
+					Query<Integer> a = ses.createQuery("select id from Akun where username = :uname");
+					a.setParameter("uname", model.getUsername());
+					Integer res = (Integer)a.uniqueResult();
+					Akun adm = ses.get(Akun.class, res);
+					
+					if(adm.getUsername().equals(model.getUsername()) && adm.getPassword().equals(model.getPassword())) {
+						ModelAndView mav = new ModelAndView("redirect:/admin/home");
+						redir.addFlashAttribute("model", adm);
 						return mav;
 					}
 					else {
@@ -126,12 +141,9 @@ public class HomeController {
 					s.close();
 				}
 			}
-			else {
-				ModelAndView mav = new ModelAndView("/login");
-				return mav;
-			}
 			
 		}
+		return null;
 	}
 	@RequestMapping("/home-admin")
 	public ModelAndView halamanAdmin(@ModelAttribute("model") Admin admin, Model model) {
