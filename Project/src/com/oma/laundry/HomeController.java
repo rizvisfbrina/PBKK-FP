@@ -32,13 +32,13 @@ public class HomeController {
 	public String showAbout() {
 		return "about";
 	}
+	@RequestMapping("/registrasi")
+	public String showRegis() {
+		return "register";
+	}
 	@RequestMapping("/layanan")
 	public String showLayanan() {
 		return "layanan";
-	}
-	@RequestMapping("/register")
-	public String showRegister() {
-		return "register";
 	}
 	@RequestMapping("/prosesLogin")
 	public ModelAndView prosesLogin(@Valid @ModelAttribute("model") Login model, BindingResult bindres, RedirectAttributes redir) {
