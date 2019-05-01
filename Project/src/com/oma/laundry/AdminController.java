@@ -21,7 +21,6 @@ import model.Pemesanan;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-<<<<<<< HEAD
 	@RequestMapping("/adminhome")
 	public ModelAndView halamanAdmin(@ModelAttribute("model") Admin admin, Model model) {
 		SessionFactory s = new Configuration()
@@ -89,11 +88,6 @@ public class AdminController {
 		}
 		
 		return mav;
-=======
-	@RequestMapping("/home")
-	public String showAdminPage() {
-		return "admin/homeadmin";
->>>>>>> 20893d0cf1f63163c5d09ed5fc901e16974b9a62
 	}
 	@RequestMapping("/layanan")
 	public String showAdminLayanan() {

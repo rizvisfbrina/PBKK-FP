@@ -52,7 +52,7 @@ public class Layanan {
 		this.harga = harga;
 	}
 
-	public Layanan(String idlay, String nama, String harga, String ket) {
+	public Layanan(int idlay, String nama, int harga, String ket) {
 		this.idlay = idlay;
 		this.nama = nama;
 		this.harga = harga;

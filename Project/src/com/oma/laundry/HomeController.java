@@ -120,12 +120,11 @@ public class HomeController {
 				try {
 					ses.beginTransaction();
 					
-<<<<<<< HEAD
-					Admin admin = ses.get(Admin.class, model.getId() );
-					if(admin.getPassword().equals(model.getPassword())) {
-						ModelAndView mav = new ModelAndView("redirect:/adminhome");
-						redir.addFlashAttribute("model", admin);
-=======
+//					Admin admin = ses.get(Admin.class, model.getId() );
+//					if(admin.getPassword().equals(model.getPassword())) {
+//						ModelAndView mav = new ModelAndView("redirect:/adminhome");
+//						redir.addFlashAttribute("model", admin);
+
 					//get admin
 					Query<Integer> a = ses.createQuery("select id from Akun where username = :uname");
 					a.setParameter("uname", model.getUsername());
@@ -133,9 +132,8 @@ public class HomeController {
 					Akun adm = ses.get(Akun.class, res);
 					
 					if(adm.getUsername().equals(model.getUsername()) && adm.getPassword().equals(model.getPassword())) {
-						ModelAndView mav = new ModelAndView("redirect:/admin/home");
+						ModelAndView mav = new ModelAndView("redirect:/adminhome");
 						redir.addFlashAttribute("model", adm);
->>>>>>> 20893d0cf1f63163c5d09ed5fc901e16974b9a62
 						return mav;
 					}
 					else {
