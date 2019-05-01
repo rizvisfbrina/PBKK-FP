@@ -14,7 +14,7 @@
 </head>
 <body>
 <h2 class="title" align="center">Registration</h2><br>
- <form method="POST">
+ <form action="prosesDaftar" method="POST" modelAttribute="model">
  	<div  class="d-flex justify-content-center align-items-center container ">
      <input class="input--style-2" type="text" placeholder="Name" name="nama">
     </div><br>
@@ -44,7 +44,7 @@
     </div>
     
   <div class="checkbox d-flex justify-content-center align-items-center container ">
-  	<button type="button" class="btn btn-success">Register</button>
+  	<button type="submit" class="btn btn-success">Register</button>
   </div>
   
   <%-- 

@@ -52,7 +52,7 @@ public class HomeController {
 		Session ses = s.getCurrentSession();
 		
 		if(bindres.hasErrors()) {
-			ModelAndView mav = new ModelAndView("signup");
+			ModelAndView mav = new ModelAndView("register");
 			return mav;
 		}
 		else {
@@ -112,7 +112,7 @@ public class HomeController {
 					
 					Admin admin = ses.get(Admin.class, model.getId() );
 					if(admin.getPassword().equals(model.getPassword())) {
-						ModelAndView mav = new ModelAndView("redirect:/home-admin");
+						ModelAndView mav = new ModelAndView("redirect:/adminhome");
 						redir.addFlashAttribute("model", admin);
 						return mav;
 					}
@@ -133,65 +133,6 @@ public class HomeController {
 			
 		}
 	}
-	@RequestMapping("/home-admin")
-	public ModelAndView halamanAdmin(@ModelAttribute("model") Admin admin, Model model) {
-		SessionFactory s = new Configuration()
-				.configure("hibernate.xml")
-				.addAnnotatedClass(Admin.class)
-				.buildSessionFactory();
-		Session ses = s.getCurrentSession();
-		ModelAndView mav = new ModelAndView("logged-admin");
-		try {
-			ses.beginTransaction();
-			
-			List<Layanan> daftarlayanan = ses.createQuery("from Layanan").list();
-			//commit transaction
-			
-			ses.getTransaction().commit();
-			
-			mav.addObject("layanan", daftarlayanan);
-		}
-		finally {
-			s.close();
-		}
-		
-		return mav;
-	}
-	@RequestMapping(name="/daftaruser-admin", method=RequestMethod.GET)
-	public ModelAndView daftaruserAdmin(@RequestParam("id") String id_admin, Model model) {
-		
-		SessionFactory factory = new Configuration()
-								.configure("hibernate.xml")
-								.addAnnotatedClass(Admin.class)
-								.buildSessionFactory();
-		Session session = factory.getCurrentSession();
-		ModelAndView mav = new ModelAndView("daftaruser-admin");
-		try {
-			session.beginTransaction();
-			Admin user = session.get(Admin.class, id_admin );
-			mav.addObject("model", user);
-		}
-		finally {
-			factory.close();
-		}
-		//buat ngambil mahasiswa
-		SessionFactory s = new Configuration()
-							.configure("hibernate.xml")
-							.addAnnotatedClass(Pelanggan.class)
-							.buildSessionFactory();
-		Session ses = s.getCurrentSession();
-		try {
-			ses.beginTransaction();
-			List<Pelanggan> daftarpelanggan = ses.createQuery("from Pelanggan").list();
-			ses.getTransaction().commit();
-			mav.addObject("pelanggan", daftarpelanggan);
-		}
-		finally {
-			s.close();
-		}
-		
-		return mav;
-	}
 	
 	@RequestMapping("/home-plg")
 	public ModelAndView halamanPelanggan(@ModelAttribute("model") Pelanggan pelanggan) {
@@ -200,31 +141,23 @@ public class HomeController {
 				.addAnnotatedClass(Layanan.class)
 				.buildSessionFactory();
 		Session ses = s.getCurrentSession();
-		ModelAndView mav = new ModelAndView("logged-user");
-		try {
-			ses.beginTransaction();
-			
-			//get pelanggan
-			List<Pemesanan> daftarpesanan = ses.createQuery("from Pemesanan").list();
-			//commit transaction
-			
-			ses.getTransaction().commit();
-			
-			mav.addObject("pemesanan", daftarpesanan);
-		}
-		finally {
-			s.close();
-		}
-		
+		ModelAndView mav = new ModelAndView("homeuser");
+//		try {
+//			ses.beginTransaction();
+//			
+//			//get pelanggan
+//			List<Pemesanan> daftarpesanan = ses.createQuery("from Pemesanan").list();
+//			//commit transaction
+//			
+//			ses.getTransaction().commit();
+//			
+//			mav.addObject("pemesanan", daftarpesanan);
+//		}
+//		finally {
+//			s.close();
+//		}
+//		
 		return mav;
 	}
-	@RequestMapping("/tambah-karyawan")
-	public String halamanTambahKaryawan(Model theModel) {
-		
-		Pemesanan pesan = new Pemesanan();
-		
-		theModel.addAttribute("pemesanan", pesan);
-		
-		return "add-karyawan";
-	}
+
 }

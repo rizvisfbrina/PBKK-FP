@@ -58,10 +58,10 @@
       				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="layanan">Tambah Layanan</a>
       			</div>
       			<div class="col-lg-4">
-      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="layanan">Tambah Pegawai</a>
+      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="tambah-karyawan">Tambah Pegawai</a>
       			</div>
       			<div class="col-lg-4">
-      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="layanan">more</a>
+      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="daftaruser-admin">Daftar Pelanggan</a>
       			</div>
       		</div>  
     	</div>
