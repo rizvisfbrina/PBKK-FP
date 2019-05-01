@@ -12,8 +12,8 @@
 <div class="container">
 		<div class="form-css">
 			<form:form action="prosesLogin" method="POST" modelAttribute="model">
-				Id : <br />
-				<form:input path="id" /> <br /><br />
+				Username : <br />
+				<form:input path="username" /> <br /><br />
 				Password : <br />
 				<form:password path="password" /> <br /><br />
 				Role : <br />

@@ -39,43 +39,46 @@
 </style>
 </head>
 <body>
-<div class="container">
-	<h1>Layanan</h1>
-	<div class="row">
-		<div class="col-8">
-			<h2>Paket</h2>
+	<div class="container">
+		<div class="row">
+			<jsp:include page="navigation.jsp" />
 		</div>
 	</div>
-	<%
-		SessionFactory s = new Configuration()
-				.configure("hibernate.xml")
-				.addAnnotatedClass(Layanan.class)
-				.buildSessionFactory();
-		Session ses = s.getCurrentSession();
-		
-		try {
-			ses.beginTransaction();
-			
-			//get pelanggan
-			List<Layanan> daftarlayanan = ses.createQuery("from Layanan").list();
-			for(Layanan lyn : daftarlayanan){
-	%>
-	 	<div class="columns">
-			<div class="card">
-		  		<br><h2><%=lyn.getNama()%></h2>
-		  		<p><%=lyn.getKet()%></p>
-		  		<p class="price">Rp. <%=lyn.getHarga()%>/kg</p>
+	<div class="container" style="margin-top: 100px;">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2 class="section-heading text-uppercase">Paket Layanan</h2>
 			</div>
 		</div>
-	<%
+		<%
+			SessionFactory s = new Configuration()
+					.configure("hibernate.xml")
+					.addAnnotatedClass(Layanan.class)
+					.buildSessionFactory();
+			Session ses = s.getCurrentSession();
+			
+			try {
+				ses.beginTransaction();
+				
+				//get pelanggan
+				List<Layanan> daftarlayanan = ses.createQuery("from Layanan").list();
+				for(Layanan lyn : daftarlayanan){
+		%>
+		 	<div class="columns">
+				<div class="card">
+			  		<br><h2><%=lyn.getNama()%></h2>
+			  		<p><%=lyn.getKet()%></p>
+			  		<p class="price">Rp. <%=lyn.getHarga()%>/kg</p>
+				</div>
+			</div>
+		<%
+				}
+				ses.getTransaction().commit();
 			}
-			ses.getTransaction().commit();
-		}
-		finally {
-			s.close();
-		}
-	%>
-	
-</div>
+			finally {
+				s.close();
+			}
+		%>
+	</div>
 </body>
 </html>
