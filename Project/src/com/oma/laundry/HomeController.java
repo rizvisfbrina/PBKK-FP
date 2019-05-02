@@ -132,7 +132,7 @@ public class HomeController {
 					Akun adm = ses.get(Akun.class, res);
 					
 					if(adm.getUsername().equals(model.getUsername()) && adm.getPassword().equals(model.getPassword())) {
-						ModelAndView mav = new ModelAndView("redirect:/adminhome");
+						ModelAndView mav = new ModelAndView("redirect:/admin/adminhome");
 						redir.addFlashAttribute("model", adm);
 						return mav;
 					}

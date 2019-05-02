@@ -42,27 +42,37 @@
 			</div>
 		</div>
 	</nav>
-
-	<h1>Daftar Pemesanan</h1>
-	<table style="width:100%">
-	 <tr>
-	     <th>ID Pesan</th>
-	     <th>Jenis</th> 
-	     <th>Harga</th>
-	     <th>Kilo</th>
-	     <th>Status</th>
-	   </tr>
-	   <c:forEach var="value" items="${pemesanan }"> 
-	    <tr>
-	     <th>${value.idpesan}</th>
-	     <th>${value.jenisLayanan}</th>
-	      <th>${value.harga}</th>
-	      <th>${value.kilo}</th>
-	      <th>${value.status}</th>
-	      <th><a href="#">Hapus</a> <a href="#">Pesan</a></th>
-	    </tr>
-	  </c:forEach>
-	</table>
+	<div class="container">
+      	<div class="row">
+       		<div class="col-lg-12 text-center">
+        		<h2 class="section-heading text-uppercase">Daftar Pemesanan</h2>
+       		</div>
+    	</div>
+    	<div class="row text-center">
+        	<div class="col-md-4">
+				<table style="width:100%">
+				 <tr>
+				     <th>ID Pesan</th>
+				     <th>Jenis</th> 
+				     <th>Harga</th>
+				     <th>Kilo</th>
+				     <th>Status</th>
+				     <th>Action</th>
+				   </tr>
+				   <c:forEach var="value" items="${pemesanan }"> 
+				    <tr>
+				     <th>${value.idpesan}</th>
+				     <th>${value.jenisLayanan}</th>
+				      <th>${value.harga}</th>
+				      <th>${value.kilo}</th>
+				      <th>${value.status}</th>
+				      <th><a href="#">Hapus</a> <a href="#">Pesan</a></th>
+				    </tr>
+				  </c:forEach>
+				</table>
+			</div>
+		</div>
+	</div>
 	
 	<!-- Footer -->
 	<footer>
