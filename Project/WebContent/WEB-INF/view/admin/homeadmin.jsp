@@ -26,10 +26,10 @@
 	<!-- Layanan -->
 	<section id="services">
     	<div class="container">
-    	<%-- <%!Akun ad = null;%>
+    	<%!Akun ad = null;%>
 		<%
-			if (ad != null && ad.getRole() == "Admin" {
-		%> --%>
+			if (ad != null && ad.getRole() == "Admin" ){
+		%>
     		<div class="row">
         		<div class="col-lg-12 text-center">
           			<h2 class="section-heading">Admin Homepage</h2>
@@ -41,32 +41,29 @@
       				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="layanan">Tambah Layanan</a>
       			</div>
       			<div class="col-lg-4">
-<<<<<<< HEAD
       				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="tambah-karyawan">Tambah Pegawai</a>
       			</div>
       			<div class="col-lg-4">
       				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="daftaruser-admin">Daftar Pelanggan</a>
-=======
-      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="pegawai">Tambah Pegawai</a>
-      			</div>
+				</div>
       			<div class="col-lg-4">
       				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="laporan">Laporan Transaksi</a>
->>>>>>> 20893d0cf1f63163c5d09ed5fc901e16974b9a62
+
       			</div>
       		</div>  
-    	<%-- 
+    	
     	<%
 			} else{
-		%> --%>
+		%>
 			<div class="row">
         		<div class="col-lg-12 text-center">
           			<h2 class="section-heading">Admin Homepage</h2>
           			<h3 class="section-subheading text-muted">Login dahulu sebagai admin</h3>
         		</div>
       		</div>
-		<%-- <%
+		<%
 			}
-		%> --%>
+		%>
 		</div>
 	</section>
  

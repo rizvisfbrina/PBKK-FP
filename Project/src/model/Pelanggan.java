@@ -10,6 +10,9 @@ public class Pelanggan {
 	@Column(name="nama")
 	private String nama;
 	
+	@Column(name="username")
+	private String username;
+	
 	@Id
 	@Column(name="idpel")
 	private int idpel;
@@ -23,8 +26,12 @@ public class Pelanggan {
 	@Column(name="password")
 	private String password;
 	
-	
-	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	public String getPassword() {
 		return password;
 	}
@@ -57,20 +64,18 @@ public class Pelanggan {
 	}
 	
 	public Pelanggan() {}
-	public Pelanggan(String nama, int idpel, String email, String nohp, String password) {
+	public Pelanggan(String nama, String username, int idpel, String email, String nohp, String password) {
+		super();
 		this.nama = nama;
+		this.username = username;
 		this.idpel = idpel;
 		this.email = email;
 		this.nohp = nohp;
 		this.password = password;
 	}
-	
 	@Override
 	public String toString() {
-		return "Pelanggan [nama=" + nama + ", idpel=" + idpel + ", email=" + email + ", nohp=" + nohp + ", password="
-				+ password + "]";
-	}
-	
-	
-	
+		return "Pelanggan [nama=" + nama + ", username=" + username + ", idpel=" + idpel + ", email=" + email
+				+ ", nohp=" + nohp + ", password=" + password + "]";
+	}	
 }

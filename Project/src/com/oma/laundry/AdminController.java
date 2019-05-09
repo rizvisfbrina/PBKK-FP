@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import model.Admin;
+import model.Akun;
 import model.Layanan;
 import model.Pelanggan;
 import model.Pemesanan;
@@ -22,10 +22,10 @@ import model.Pemesanan;
 @RequestMapping("/admin")
 public class AdminController {
 	@RequestMapping("/adminhome")
-	public ModelAndView halamanAdmin(@ModelAttribute("model") Admin admin, Model model) {
+	public ModelAndView halamanAdmin(@ModelAttribute("model") Akun admin, Model model) {
 		SessionFactory s = new Configuration()
 				.configure("hibernate.xml")
-				.addAnnotatedClass(Admin.class)
+				.addAnnotatedClass(Akun.class)
 				.buildSessionFactory();
 		Session ses = s.getCurrentSession();
 		ModelAndView mav = new ModelAndView("admin/homeadmin");
@@ -55,40 +55,40 @@ public class AdminController {
 		
 		return "add-karyawan";
 	}
-	@RequestMapping(name="/daftaruser-admin", method=RequestMethod.GET)
-	public ModelAndView daftaruserAdmin(@RequestParam("idadmin") int idadmin, Model model) {
-		
-		SessionFactory factory = new Configuration()
-								.configure("hibernate.xml")
-								.addAnnotatedClass(Admin.class)
-								.buildSessionFactory();
-		Session session = factory.getCurrentSession();
-		ModelAndView mav = new ModelAndView("daftaruser-admin");
-		try {
-			session.beginTransaction();
-			Admin user = session.get(Admin.class, idadmin );
-			mav.addObject("model", user);
-		}
-		finally {
-			factory.close();
-		}
-		SessionFactory s = new Configuration()
-							.configure("hibernate.xml")
-							.addAnnotatedClass(Pelanggan.class)
-							.buildSessionFactory();
-		Session ses = s.getCurrentSession();
-		try {
-			ses.beginTransaction();
-			List<Pelanggan> daftarpelanggan = ses.createQuery("from Pelanggan").list();
-			ses.getTransaction().commit();
-			mav.addObject("pelanggan", daftarpelanggan);
-		}
-		finally {
-			s.close();
-		}
-		
-		return mav;
-	}
+//	@RequestMapping(name="/daftaruser-admin", method=RequestMethod.GET)
+//	public ModelAndView daftaruserAdmin(@RequestParam("idadmin") int idadmin, Model model) {
+//		
+//		SessionFactory factory = new Configuration()
+//								.configure("hibernate.xml")
+//								.addAnnotatedClass(Admin.class)
+//								.buildSessionFactory();
+//		Session session = factory.getCurrentSession();
+//		ModelAndView mav = new ModelAndView("daftaruser-admin");
+//		try {
+//			session.beginTransaction();
+//			Admin user = session.get(Admin.class, idadmin );
+//			mav.addObject("model", user);
+//		}
+//		finally {
+//			factory.close();
+//		}
+//		SessionFactory s = new Configuration()
+//							.configure("hibernate.xml")
+//							.addAnnotatedClass(Pelanggan.class)
+//							.buildSessionFactory();
+//		Session ses = s.getCurrentSession();
+//		try {
+//			ses.beginTransaction();
+//			List<Pelanggan> daftarpelanggan = ses.createQuery("from Pelanggan").list();
+//			ses.getTransaction().commit();
+//			mav.addObject("pelanggan", daftarpelanggan);
+//		}
+//		finally {
+//			s.close();
+//		}
+//		
+//		return mav;
+//	}
 	@RequestMapping("/layanan")
 	public String showAdminLayanan() {
 		return "admin/editlayanan";

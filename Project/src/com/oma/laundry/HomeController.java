@@ -82,22 +82,20 @@ public class HomeController {
 			if(model.getRole().equals("Pelanggan")) {
 				SessionFactory s = new Configuration()
 						.configure("hibernate.xml")
-						.addAnnotatedClass(Akun.class)
+						.addAnnotatedClass(Pelanggan.class)
 						.buildSessionFactory();
 				Session ses = s.getCurrentSession();
 				try {
 					ses.beginTransaction();
 					
 					//get pelanggan
-					Query<Integer> a = ses.createQuery("select id from Akun where username = :uname");
-					a.setParameter("uname", model.getUsername());
-					Integer res = (Integer)a.uniqueResult();
-					Akun user = ses.get(Akun.class, res);
-					
-					System.out.println("halo");
-					if(user.getUsername().equals(model.getUsername()) && user.getPassword().equals(model.getPassword())) {
-						System.out.println("halo22");
-						ModelAndView mav = new ModelAndView("redirect:/");
+//					Query<Integer> a = ses.createQuery("select id from Akun where username = :uname");
+//					a.setParameter("uname", model.getUsername());
+//					Integer res = (Integer)a.uniqueResult();
+//					Akun user = ses.get(Akun.class, res);
+					Pelanggan user = ses.get(Pelanggan.class, model.getId());
+					if(user.getPassword().equals(model.getPassword())) {
+						ModelAndView mav = new ModelAndView("redirect:/home-plg");
 						redir.addFlashAttribute("model", user);
 						return mav;
 					}
@@ -120,22 +118,29 @@ public class HomeController {
 				try {
 					ses.beginTransaction();
 					
-//					Admin admin = ses.get(Admin.class, model.getId() );
-//					if(admin.getPassword().equals(model.getPassword())) {
-//						ModelAndView mav = new ModelAndView("redirect:/adminhome");
-//						redir.addFlashAttribute("model", admin);
-
-					//get admin
 					Query<Integer> a = ses.createQuery("select id from Akun where username = :uname");
 					a.setParameter("uname", model.getUsername());
 					Integer res = (Integer)a.uniqueResult();
-					Akun adm = ses.get(Akun.class, res);
+					System.out.println("halo oke");
+					Akun admin = ses.get(Akun.class, res);
 					
-					if(adm.getUsername().equals(model.getUsername()) && adm.getPassword().equals(model.getPassword())) {
+					if(admin.getUsername().equals(model.getUsername()) && admin.getPassword().equals(model.getPassword())) {
+						System.out.println("halo");
 						ModelAndView mav = new ModelAndView("redirect:/admin/adminhome");
-						redir.addFlashAttribute("model", adm);
+						redir.addFlashAttribute("model", admin);
+						ses.merge(admin);
+						ses.getTransaction().commit();
 						return mav;
 					}
+					//get admin
+					
+//					Admin adm = ses.get(Admin.class, model.getId());
+					
+//					if(adm.getPassword().equals(model.getPassword())) {
+//						ModelAndView mav = new ModelAndView("redirect:/admin/adminhome");
+//						redir.addFlashAttribute("model", adm);
+//						return mav;
+//					}
 					else {
 						ModelAndView mav = new ModelAndView("/login");
 						return mav;

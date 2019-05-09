@@ -17,6 +17,7 @@
   	<link href="<c:url value="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"/>" rel='stylesheet' type='text/css'>
 
 	<meta charset="ISO-8859-1">
+	
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
