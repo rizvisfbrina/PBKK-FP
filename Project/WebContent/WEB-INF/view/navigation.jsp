@@ -28,41 +28,41 @@
       		</button>
       		<div class="collapse navbar-collapse" id="navbarResponsive">
         		<ul class="navbar-nav text-uppercase ml-auto">
-        			<%!Akun user = null;%>
           			<li class="nav-item">
             			<a class="nav-link js-scroll-trigger" href="layanan">Layanan</a>
           			</li>
           			<li class="nav-item">
             			<a class="nav-link js-scroll-trigger" href="about">About</a>
-          			</li>       			
-					<%
-          				if (user == null) {
-					%>
+          			</li>
+          			       			
+				<c:if test = "${modell == null}">
 					<li class="nav-item">
 			        	<a class="nav-link js-scroll-trigger" href="login">Login</a>
 			       	</li>
 			       	<li class="nav-item">
 			            <a class="nav-link js-scroll-trigger" href="registrasi">Registrasi</a>
 			        </li>
-					<%
-						} else{
-							if (user.getRole() == "Admin") {
-					%>
+			    </c:if>
+			    
+				<c:if test = "${modell != null}">
+					<c:if test = "${modell.role == 'Admin'}">
+          			
           			<li class="nav-item">
             			<a class="nav-link js-scroll-trigger" href="admin/pegawai">Pegawai</a>
           			</li>
 			        <li class="nav-item">
 			        	<a class="nav-link js-scroll-trigger" href="admin/laporan">Laporan</a>
 			       	</li>
-			       	<%
-						}
-					%>
+			       	</c:if>
+			     	
+			     	<li class="nav-item">
+			        	<a class="nav-link js-scroll-trigger" href="logout">Pesanan</a>
+			       	</li>
 					<li class="nav-item">
 			        	<a class="nav-link js-scroll-trigger" href="logout">Logout</a>
 			       	</li>
-					<%	
-						}
-					%>
+			    </c:if>
+			    
 				</ul>
 			</div>
 		</div>

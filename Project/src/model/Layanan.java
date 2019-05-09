@@ -20,6 +20,17 @@ public class Layanan {
 	@Column(name="lynket")
 	private String ket;
 	
+	@Column(name="durasi")
+	private int durasi;
+	
+	public int getDurasi() {
+		return durasi;
+	}
+
+	public void setDurasi(int durasi) {
+		this.durasi = durasi;
+	}
+
 	public String getKet() {
 		return ket;
 	}
@@ -52,11 +63,12 @@ public class Layanan {
 		this.harga = harga;
 	}
 
-	public Layanan(int idlay, String nama, int harga, String ket) {
+	public Layanan(int idlay, String nama, int harga, String ket, int durasi) {
 		this.idlay = idlay;
 		this.nama = nama;
 		this.harga = harga;
 		this.ket = ket;
+		this.durasi = durasi;
 	}
 
 	public Layanan() {
@@ -64,7 +76,7 @@ public class Layanan {
 
 	@Override
 	public String toString() {
-		return "Layanan [idlay=" + idlay + ", nama=" + nama + ", harga=" + harga + ", ket=" + ket
+		return "Layanan [idlay=" + idlay + ", nama=" + nama + ", harga=" + harga + ", ket=" + ket + ", durasi=" + durasi
 				+ "]";
 	}
 	

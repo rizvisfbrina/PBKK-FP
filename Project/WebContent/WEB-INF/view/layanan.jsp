@@ -51,11 +51,11 @@
 			</div>
 		</div>
 		<%
-			SessionFactory s = new Configuration()
+			SessionFactory sw = new Configuration()
 					.configure("hibernate.xml")
 					.addAnnotatedClass(Layanan.class)
 					.buildSessionFactory();
-			Session ses = s.getCurrentSession();
+			Session ses = sw.getCurrentSession();
 			
 			try {
 				ses.beginTransaction();
@@ -66,9 +66,15 @@
 		%>
 		 	<div class="columns">
 				<div class="card">
-			  		<br><h2><%=lyn.getNama()%></h2>
+					<br><h2><%=lyn.getNama()%></h2>
 			  		<p><%=lyn.getKet()%></p>
+				<%if (lyn.getIdlay() == 205) { %>
+			  		<p class="price">Rp. <%=lyn.getHarga()%>/psg</p>
+			  	<%} else if(lyn.getIdlay() == 204){ %>
+			  		<p class="price">Rp. <%=lyn.getHarga()%>/pcs</p>
+			  	<%} else{ %>
 			  		<p class="price">Rp. <%=lyn.getHarga()%>/kg</p>
+			  	<%} %>
 				</div>
 			</div>
 		<%
@@ -76,7 +82,7 @@
 				ses.getTransaction().commit();
 			}
 			finally {
-				s.close();
+				sw.close();
 			}
 		%>
 	</div>

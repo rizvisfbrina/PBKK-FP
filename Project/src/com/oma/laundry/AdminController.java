@@ -22,12 +22,12 @@ import model.Pemesanan;
 @RequestMapping("/admin")
 public class AdminController {
 	@RequestMapping("/adminhome")
-	public ModelAndView halamanAdmin(@ModelAttribute("model") Akun admin, Model model) {
-		SessionFactory s = new Configuration()
-				.configure("hibernate.xml")
-				.addAnnotatedClass(Akun.class)
-				.buildSessionFactory();
-		Session ses = s.getCurrentSession();
+	public ModelAndView halamanAdmin(@ModelAttribute("modell") Akun admin) {
+//		SessionFactory s = new Configuration()
+//				.configure("hibernate.xml")
+//				.addAnnotatedClass(Akun.class)
+//				.buildSessionFactory();
+//		Session ses = s.getCurrentSession();
 		ModelAndView mav = new ModelAndView("admin/homeadmin");
 //		try {
 //			ses.beginTransaction();
@@ -100,5 +100,15 @@ public class AdminController {
 	@RequestMapping("/laporan")
 	public String showAdminLaporan() {
 		return "admin/";
+	}
+	
+	//gagal ni
+	@RequestMapping("/logout")
+	public ModelAndView endsession(@ModelAttribute("modell") Akun model) {
+		SessionFactory s = new Configuration().configure("hibernate.xml").addAnnotatedClass(Akun.class).buildSessionFactory();
+//		Session ses = s.getCurrentSession();
+		s.close();
+		ModelAndView mav = new ModelAndView("redirect:/admin/adminhome");
+		return mav;
 	}
 }

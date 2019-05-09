@@ -21,50 +21,50 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
 @Controller
 public class HomeController {
-	@RequestMapping(value = {"/a","/"})
+	@RequestMapping(value = { "/a", "/" })
 	public String showMyPage() {
 		return "index";
 	}
+
 	@RequestMapping("/login")
-	public String loginPage(Model model){
+	public String loginPage(Model model) {
 		model.addAttribute("model", new Akun());
 		return "login";
 	}
+
 	@RequestMapping("/about")
 	public String showAbout() {
 		return "about";
 	}
+
 	@RequestMapping("/registrasi")
 	public String showRegis() {
 		return "register";
 	}
+
 	@RequestMapping("/layanan")
 	public String showLayanan() {
 		return "layanan";
 	}
-	
+
 	@RequestMapping("/prosesDaftar")
-	public ModelAndView daftarPelanggan(@Valid @ModelAttribute("model") Pelanggan model, BindingResult bindres, RedirectAttributes redir) {
-		SessionFactory s = new Configuration()
-				.configure("hibernate.xml")
-				.addAnnotatedClass(Pelanggan.class)
+	public ModelAndView daftarPelanggan(@Valid @ModelAttribute("model") Pelanggan model, BindingResult bindres,
+			RedirectAttributes redir) {
+		SessionFactory s = new Configuration().configure("hibernate.xml").addAnnotatedClass(Pelanggan.class)
 				.buildSessionFactory();
 		Session ses = s.getCurrentSession();
-		
-		if(bindres.hasErrors()) {
+
+		if (bindres.hasErrors()) {
 			ModelAndView mav = new ModelAndView("register");
 			return mav;
-		}
-		else {
+		} else {
 			try {
 				ses.beginTransaction();
 				ses.save(model);
 				ses.getTransaction().commit();
-			}
-			finally {
+			} finally {
 				s.close();
 			}
 			ModelAndView mav = new ModelAndView("redirect:/home-plg");
@@ -72,98 +72,75 @@ public class HomeController {
 			return mav;
 		}
 	}
+
 	@RequestMapping("/prosesLogin")
-	public ModelAndView prosesLogin(@Valid @ModelAttribute("model") Akun model, BindingResult bindres, RedirectAttributes redir){
-		if(bindres.hasErrors()) {
+	public ModelAndView prosesLogin(@Valid @ModelAttribute("model") Akun modell, BindingResult bindres,
+			RedirectAttributes redir) {
+		SessionFactory s = new Configuration().configure("hibernate.xml").addAnnotatedClass(Akun.class)
+				.buildSessionFactory();
+		Session ses = s.getCurrentSession();
+
+		if (bindres.hasErrors()) {
 			ModelAndView mav = new ModelAndView("/login");
 			return mav;
-		}
-		else {
-			if(model.getRole().equals("Pelanggan")) {
-				SessionFactory s = new Configuration()
-						.configure("hibernate.xml")
-						.addAnnotatedClass(Pelanggan.class)
-						.buildSessionFactory();
-				Session ses = s.getCurrentSession();
-				try {
-					ses.beginTransaction();
-					
-					//get pelanggan
-//					Query<Integer> a = ses.createQuery("select id from Akun where username = :uname");
-//					a.setParameter("uname", model.getUsername());
-//					Integer res = (Integer)a.uniqueResult();
-//					Akun user = ses.get(Akun.class, res);
-					Pelanggan user = ses.get(Pelanggan.class, model.getId());
-					if(user.getPassword().equals(model.getPassword())) {
-						ModelAndView mav = new ModelAndView("redirect:/home-plg");
-						redir.addFlashAttribute("model", user);
-						return mav;
-					}
-					else {
-						ModelAndView mav = new ModelAndView("/login");
-						return mav;
-					}
+		} else if (modell.getRole().equals("Pelanggan")) {
+			try {
+				ses.beginTransaction();
 
-				}
-				finally {
-					s.close();
-				}
-			}
-			else if(model.getRole().equals("Admin")){
-				SessionFactory s = new Configuration()
-						.configure("hibernate.xml")
-						.addAnnotatedClass(Akun.class)
-						.buildSessionFactory();
-				Session ses = s.getCurrentSession();
-				try {
-					ses.beginTransaction();
-					
-					Query<Integer> a = ses.createQuery("select id from Akun where username = :uname");
-					a.setParameter("uname", model.getUsername());
-					Integer res = (Integer)a.uniqueResult();
-					System.out.println("halo oke");
-					Akun admin = ses.get(Akun.class, res);
-					
-					if(admin.getUsername().equals(model.getUsername()) && admin.getPassword().equals(model.getPassword())) {
-						System.out.println("halo");
-						ModelAndView mav = new ModelAndView("redirect:/admin/adminhome");
-						redir.addFlashAttribute("model", admin);
-						ses.merge(admin);
-						ses.getTransaction().commit();
-						return mav;
-					}
-					//get admin
-					
-//					Admin adm = ses.get(Admin.class, model.getId());
-					
-//					if(adm.getPassword().equals(model.getPassword())) {
-//						ModelAndView mav = new ModelAndView("redirect:/admin/adminhome");
-//						redir.addFlashAttribute("model", adm);
-//						return mav;
-//					}
-					else {
-						ModelAndView mav = new ModelAndView("/login");
-						return mav;
-					}
+				Query<Integer> a = ses.createQuery("select id from Akun where username = :uname");
+				a.setParameter("uname", modell.getUsername());
+				Integer res = (Integer) a.uniqueResult();
+				Akun user = ses.get(Akun.class, res);
 
+				if (user.getUsername().equals(modell.getUsername())
+						&& user.getPassword().equals(modell.getPassword())) {
+					ModelAndView mav = new ModelAndView("redirect:/home-plg");
+					redir.addFlashAttribute("modell", user);
+					ses.merge(user);
+					ses.getTransaction().commit();
+					return mav;
+				} else {
+					ModelAndView mav = new ModelAndView("/login");
+					return mav;
 				}
-				finally {
-					s.close();
-				}
+
+			} catch(Throwable t) {
+				t.printStackTrace();
 			}
-			
+		} else if (modell.getRole().equals("Admin")) {
+			try {
+				ses.beginTransaction();
+
+				Query<Integer> a = ses.createQuery("select id from Akun where username = :uname");
+				a.setParameter("uname", modell.getUsername());
+				Integer res = (Integer) a.uniqueResult();
+				Akun admin = ses.get(Akun.class, res);
+
+				if (admin.getUsername().equals(modell.getUsername())
+						&& admin.getPassword().equals(modell.getPassword())) {
+					ModelAndView mav = new ModelAndView("redirect:/admin/adminhome");
+					redir.addFlashAttribute("modell", admin);
+					ses.merge(admin);
+					ses.getTransaction().commit();
+					return mav;
+				} else {
+					ModelAndView mav = new ModelAndView("/login");
+					return mav;
+				}
+
+			}  catch(Throwable t) {
+				t.printStackTrace();
+			}
 		}
 		return null;
 	}
-	
+
 	@RequestMapping("/home-plg")
-	public ModelAndView halamanPelanggan(@ModelAttribute("model") Pelanggan pelanggan) {
-		SessionFactory s = new Configuration()
-				.configure("hibernate.xml")
-				.addAnnotatedClass(Layanan.class)
-				.buildSessionFactory();
-		Session ses = s.getCurrentSession();
-		ModelAndView mav = new ModelAndView("homeuser");
+	public ModelAndView halamanPelanggan(@ModelAttribute("modell") Akun user) {
+//		SessionFactory s = new Configuration().configure("hibernate.xml").addAnnotatedClass(Layanan.class)
+//				.buildSessionFactory();
+//		Session ses = s.getCurrentSession();
+		ModelAndView mav = new ModelAndView("index");
 //		try {
 //			ses.beginTransaction();
 //			
@@ -179,6 +156,15 @@ public class HomeController {
 //			s.close();
 //		}
 //		
+		return mav;
+	}
+	
+	@RequestMapping("/logout")
+	public ModelAndView endsession(@ModelAttribute("modell") Akun model) {
+		SessionFactory s = new Configuration().configure("hibernate.xml").addAnnotatedClass(Akun.class).buildSessionFactory();
+		Session ses = s.getCurrentSession();
+		s.close();
+		ModelAndView mav = new ModelAndView("redirect:/a");
 		return mav;
 	}
 

@@ -26,10 +26,8 @@
 	<!-- Layanan -->
 	<section id="services">
     	<div class="container">
-    	<%!Akun ad = %>
-		<%
-			if (ad != null && ad.getRole() == "Admin" ){
-		%>
+		<c:if test = "${modell != null}">
+			<c:if test = "${modell.role == 'Admin'}">
     		<div class="row">
         		<div class="col-lg-12 text-center">
           			<h2 class="section-heading">Admin Homepage</h2>
@@ -46,24 +44,25 @@
       			<div class="col-lg-4">
       				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="daftaruser-admin">Daftar Pelanggan</a>
 				</div>
+			</div>
+			<div class="row text-center" style="margin-top: 50px;">
       			<div class="col-lg-4">
       				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="laporan">Laporan Transaksi</a>
 
-      			</div>
+      		</div>
       		</div>  
+    		</c:if>
+    	</c:if>
     	
-    	<%
-			} else{
-		%>
+    	<c:if test = "${modell == null}">
 			<div class="row">
         		<div class="col-lg-12 text-center">
           			<h2 class="section-heading">Admin Homepage</h2>
           			<h3 class="section-subheading text-muted">Login dahulu sebagai admin</h3>
         		</div>
       		</div>
-		<%
-			}
-		%>
+      	</c:if>
+      	
 		</div>
 	</section>
  
