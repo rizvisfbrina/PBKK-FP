@@ -26,7 +26,7 @@
 	<!-- Layanan -->
 	<section id="services">
     	<div class="container">
-    	<%!Akun ad = null;%>
+    	<%!Akun ad = %>
 		<%
 			if (ad != null && ad.getRole() == "Admin" ){
 		%>
