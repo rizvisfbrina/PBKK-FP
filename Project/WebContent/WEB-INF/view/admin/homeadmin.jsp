@@ -36,7 +36,7 @@
       		</div>
     		<div class="row text-center">
       			<div class="col-lg-4">
-      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="layanan">Tambah Layanan</a>
+      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="editlayanan">Tambah Layanan</a>
       			</div>
       			<div class="col-lg-4">
       				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="tambah-karyawan">Tambah Pegawai</a>
