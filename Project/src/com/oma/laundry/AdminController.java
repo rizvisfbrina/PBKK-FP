@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.Akun;
@@ -20,11 +21,11 @@ import model.Pelanggan;
 import model.Pemesanan;
 
 @Controller
-@Scope("session")
+@SessionAttributes("model")
 @RequestMapping("/admin")
 public class AdminController {
 	@RequestMapping("/adminhome")
-	public ModelAndView halamanAdmin(@ModelAttribute("modell") Akun admin) {
+	public ModelAndView halamanAdmin(@ModelAttribute("model") Akun admin) {
 //		SessionFactory s = new Configuration()
 //				.configure("hibernate.xml")
 //				.addAnnotatedClass(Akun.class)
@@ -106,11 +107,12 @@ public class AdminController {
 	
 	//gagal ni
 	@RequestMapping("/logout")
-	public ModelAndView endsession(@ModelAttribute("modell") Akun model) {
+	public ModelAndView endsession(@ModelAttribute("model") Akun model) {
 		SessionFactory s = new Configuration().configure("hibernate.xml").addAnnotatedClass(Akun.class).buildSessionFactory();
 //		Session ses = s.getCurrentSession();
 		s.close();
 		ModelAndView mav = new ModelAndView("redirect:/admin/adminhome");
+		mav.clear();
 		return mav;
 	}
 }

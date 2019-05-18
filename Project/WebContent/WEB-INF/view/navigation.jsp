@@ -35,7 +35,7 @@
             			<a class="nav-link js-scroll-trigger" href="about">About</a>
           			</li>
           			       			
-				<c:if test = "${modell == null}">
+				<c:if test = "${model == null}">
 					<li class="nav-item">
 			        	<a class="nav-link js-scroll-trigger" href="login">Login</a>
 			       	</li>
@@ -44,22 +44,22 @@
 			        </li>
 			    </c:if>
 			    
-				<c:if test = "${modell != null}">
-					<c:if test = "${modell.role == 'Admin'}">
+				<c:if test = "${model != null}">
+					<c:if test = "${model.role == 'Admin'}">
           			
-          			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="admin/pegawai">Pegawai</a>
-          			</li>
-			        <li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="admin/laporan">Laporan</a>
-			       	</li>
+	          			<li class="nav-item">
+	            			<a class="nav-link js-scroll-trigger" href="admin/pegawai">Pegawai</a>
+	          			</li>
+				        <li class="nav-item">
+				        	<a class="nav-link js-scroll-trigger" href="admin/laporan">Laporan</a>
+				       	</li>
 			       	</c:if>
 			     	
 			     	<li class="nav-item">
 			        	<a class="nav-link js-scroll-trigger" href="pesanan">Pesanan</a>
 			       	</li>
 					<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="logout">Logout</a>
+			        	<a class="nav-link js-scroll-trigger" href="logout">"${model.username}",Logout</a>
 			       	</li>
 			    </c:if>
 			    

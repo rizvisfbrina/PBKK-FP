@@ -27,8 +27,8 @@
 	<!-- Layanan -->
 	<section id="services">
     	<div class="container">
-		<c:if test = "${modell != null}">
-			<c:if test = "${modell.role == 'Admin'}">
+		<c:if test = "${model != null}">
+			<c:if test = "${model.role == 'Admin'}">
     		<div class="row">
         		<div class="col-lg-12 text-center">
           			<h2 class="section-heading">Admin Homepage</h2>
@@ -55,7 +55,7 @@
     		</c:if>
     	</c:if>
     	
-    	<c:if test = "${modell == null}">
+    	<c:if test = "${model == null}">
 			<div class="row">
         		<div class="col-lg-12 text-center">
           			<h2 class="section-heading">Admin Homepage</h2>
