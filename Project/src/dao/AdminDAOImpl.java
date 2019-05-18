@@ -17,7 +17,7 @@ public class AdminDAOImpl implements AdminDAO {
 	
 	@Transactional
 	@Override
-	public Admin getAdmin(String idadmin) {
+	public Admin getAdmin(int idadmin) {
 		Session session = ses.getCurrentSession();
 		Admin adm = session.get(Admin.class, idadmin);
 		return adm;

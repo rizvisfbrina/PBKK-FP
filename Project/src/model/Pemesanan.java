@@ -14,6 +14,12 @@ public class Pemesanan {
 	@Column(name="idpesan")
 	private int idpesan;
 	
+	@Column(name="idpel")
+	private int idpel;
+	
+	@Column(name="idlay")
+	private int idlay;
+	
 	@Column(name="harga")
 	private String harga;
 	
@@ -26,10 +32,13 @@ public class Pemesanan {
 	@Column(name="status")
 	private String status;
 
-	public Pemesanan(String jenisLayanan, int idpesan, String harga, String kilo, String total, String status) {
+	public Pemesanan(String jenisLayanan, int idpesan, int idpel, int idlay, String harga, String kilo, String total,
+			String status) {
 		super();
 		this.jenisLayanan = jenisLayanan;
 		this.idpesan = idpesan;
+		this.idpel = idpel;
+		this.idlay = idlay;
 		this.harga = harga;
 		this.kilo = kilo;
 		this.total = total;
@@ -87,11 +96,29 @@ public class Pemesanan {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	public int getIdpel() {
+		return idpel;
+	}
+
+	public void setIdpel(int idpel) {
+		this.idpel = idpel;
+	}
+
+	public int getIdlay() {
+		return idlay;
+	}
+
+	public void setIdlay(int idlay) {
+		this.idlay = idlay;
+	}
 
 	@Override
 	public String toString() {
-		return "Pemesanan [jenisLayanan=" + jenisLayanan + ", idpesan=" + idpesan + ", harga=" + harga + ", kilo="
-				+ kilo + ", total=" + total + ", status=" + status + "]";
+		return "Pemesanan [jenisLayanan=" + jenisLayanan + ", idpesan=" + idpesan + ", idpel=" + idpel + ", idlay="
+				+ idlay + ", harga=" + harga + ", kilo=" + kilo + ", total=" + total + ", status=" + status + "]";
 	}
+
+	
 	
 }

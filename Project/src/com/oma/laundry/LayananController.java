@@ -18,6 +18,7 @@ import model.Layanan;*/
 /*@Controller
 @RequestMapping("/layanan")*/
 public class LayananController {
+
 	/*
 	 * @Autowired private LayananDAO dao;
 	 */
@@ -43,4 +44,41 @@ public class LayananController {
 	 * dao.getLayanan(idlay); layanan.addAttribute("", edit); return "editlayanan";
 	 * }
 	 */
+//}
+	@Autowired 
+	private LayananDAO dao;
+	 
+	
+	@RequestMapping("/tambahLayanan") 
+	public String tambahLayanan(Model layanan) {
+		 layanan.addAttribute("layanan", new Layanan()); 
+		 return "add-layanan";
+	}
+	  
+	@RequestMapping("/insertDb")
+	public ModelAndView daftarLayananBaru(@Valid @ModelAttribute("layanan") Layanan layanan,BindingResult result) { 
+		if(result.hasErrors()) { 
+			ModelAndView mav = new ModelAndView("add-layanan"); 
+			return mav; 
+		}
+		else { 
+			dao.tambahLayanan(layanan);
+			ModelAndView mav = new ModelAndView("redirect:/admin/adminhome"); 
+			return mav;
+		} 
+	}
+	  
+	@RequestMapping(value="deleteLayanan", method=RequestMethod.GET) 
+	public String deleteLayanan(@RequestParam("idlay") int idlay) { 
+		Layanan hapus = dao.getLayanan(idlay); 
+		dao.deleteLayanan(hapus); 
+		return "redirect:/admin/adminhome";
+	}	  
+	  
+	@RequestMapping(value="/editLayanan", method=RequestMethod.GET) 
+	public String editLayanan(Model layanan, @RequestParam("idlay") int idlay) { 
+		Layanan edit = dao.getLayanan(idlay); 
+		layanan.addAttribute("layanan", edit); 
+		return "editlayanan";
+	}
 }

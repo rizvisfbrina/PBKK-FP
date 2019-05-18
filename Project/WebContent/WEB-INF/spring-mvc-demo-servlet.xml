@@ -34,7 +34,8 @@
 	</bean>
 	
 	<!-- Hibernate configuration -->
-<!-- 	<bean id="myDataSource"
+
+	<!-- <bean id="myDataSource"
 		class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
@@ -51,6 +52,7 @@
 	</bean> -->
 	
 	<!-- Hibernate session factory -->
+
 <!-- 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="myDataSource" />
@@ -65,7 +67,8 @@
 	</bean> -->
 	
 	<!-- Transaction Manager -->
-<!-- 	<bean id="myTransactionManager"
+
+	<!-- <bean id="myTransactionManager"
 		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean> -->
