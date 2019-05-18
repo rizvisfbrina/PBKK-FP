@@ -13,6 +13,11 @@
 <title>Register</title>
 </head>
 <body>
+<div class="container">
+	<div class="row">
+		<jsp:include page="navigation.jsp" />
+	</div>
+</div><br><br><br><br><br>
 <h2 class="title" align="center">Registration</h2><br>
  <form action="prosesDaftar" method="POST" modelAttribute="model">
  	<div  class="d-flex justify-content-center align-items-center container ">
