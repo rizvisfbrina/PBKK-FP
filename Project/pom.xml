@@ -128,5 +128,11 @@
 		    <version>2.0.1.Final</version>
 		</dependency>
 		
+		<dependency>
+		    <groupId>com.healthmarketscience.sqlbuilder</groupId>
+		    <artifactId>sqlbuilder</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+		
   </dependencies>
 </project>
