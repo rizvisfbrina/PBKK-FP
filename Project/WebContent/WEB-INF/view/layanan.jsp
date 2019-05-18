@@ -46,7 +46,7 @@
 	</div>
 	<div class="container" style="margin-top: 100px;">
 		<div class="row">
-			<div class="col-lg-12 text-center">
+			<div class="col-lg-12 text-center"><br>
 				<h2 class="section-heading text-uppercase">Paket Layanan</h2>
 			</div>
 		</div>
