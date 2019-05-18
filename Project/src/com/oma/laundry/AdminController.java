@@ -77,6 +77,15 @@ public class AdminController {
 		
 		return "add-karyawan";
 	}
+	@RequestMapping("/tambah-layanan")
+	public String halamanTambahLayanan(Model theModel) {
+		
+		Pemesanan pesan = new Pemesanan();
+		
+		theModel.addAttribute("pemesanan", pesan);
+		
+		return "add-layanan";
+	}
 //	@RequestMapping(name="/daftaruser-admin", method=RequestMethod.GET)
 //	public ModelAndView daftaruserAdmin(@RequestParam("idadmin") int idadmin, Model model) {
 //		

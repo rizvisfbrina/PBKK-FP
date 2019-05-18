@@ -20,7 +20,6 @@
 	
 	<title>OMA Laundry</title>
 </head>
-
 <body id="page-top">
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
