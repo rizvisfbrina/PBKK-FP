@@ -42,22 +42,22 @@ public class LayananController {
 		}
 		else { 
 			dao.tambahLayanan(layanan);
-			ModelAndView mav = new ModelAndView("redirect:/admin/homeadmin"); 
+			ModelAndView mav = new ModelAndView("redirect:/admin/adminhome"); 
 			return mav;
 		} 
 	}
 	  
 	@RequestMapping(value="deleteLayanan", method=RequestMethod.GET) 
-	public String deleteLayanan(@RequestParam("id") String idlay) { 
+	public String deleteLayanan(@RequestParam("idlay") int idlay) { 
 		Layanan hapus = dao.getLayanan(idlay); 
 		dao.deleteLayanan(hapus); 
-		return "redirect:/admin/homeadmin";
+		return "redirect:/admin/adminhome";
 	}	  
 	  
 	@RequestMapping(value="/editLayanan", method=RequestMethod.GET) 
-	public String editLayanan(Model layanan, @RequestParam("id") String idlay) { 
+	public String editLayanan(Model layanan, @RequestParam("idlay") int idlay) { 
 		Layanan edit = dao.getLayanan(idlay); 
-		layanan.addAttribute("", edit); 
+		layanan.addAttribute("layanan", edit); 
 		return "editlayanan";
 	}
 }

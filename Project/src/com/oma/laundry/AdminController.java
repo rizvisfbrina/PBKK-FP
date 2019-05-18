@@ -5,14 +5,20 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import dao.AdminDAO;
+import dao.LayananDAO;
+import dao.PelangganDAO;
+import dao.PesanDAO;
 import model.Akun;
 import model.Layanan;
 import model.Pelanggan;
@@ -20,7 +26,20 @@ import model.Pemesanan;
 
 @Controller
 @RequestMapping("/admin")
+@SessionAttributes("model")
 public class AdminController {
+	@Autowired
+	private AdminDAO admindao;
+	
+	@Autowired
+	private PelangganDAO plgdao;
+	
+	@Autowired
+	private LayananDAO lyndao;
+	
+	@Autowired
+	private PesanDAO pesandao;
+	
 	@RequestMapping("/adminhome")
 	public ModelAndView halamanAdmin(@ModelAttribute("modell") Akun admin) {
 //		SessionFactory s = new Configuration()
@@ -42,8 +61,11 @@ public class AdminController {
 //		finally {
 //			s.close();
 //		}
-//		
+		List<Layanan> layanan = lyndao.getAllLayanan();
+		mav.addObject("layanan", layanan);
 		return mav;
+//		
+//		return mav;
 	}
 	
 	@RequestMapping("/tambah-karyawan")

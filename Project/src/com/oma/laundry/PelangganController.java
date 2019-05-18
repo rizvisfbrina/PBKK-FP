@@ -28,7 +28,7 @@ import model.Pelanggan;
 import model.Pemesanan;
 
 @Controller
-@RequestMapping("mhs")
+@RequestMapping("plg")
 @SessionAttributes("model")
 public class PelangganController {
 	@Autowired
@@ -61,7 +61,7 @@ public class PelangganController {
 		return mav;
 	}
 	@RequestMapping(value="deleteUser", method=RequestMethod.GET)
-	public String deletePelanggan(@RequestParam("idpel") String idpel) {
+	public String deletePelanggan(@RequestParam("idpel") int idpel) {
 		Pelanggan plg = plgdao.getPelanggan(idpel);
 		plgdao.deletePelanggan(plg);
 		return "redirect:/admin/daftaruser-admin";
@@ -77,24 +77,22 @@ public class PelangganController {
 		}
 		else {
 			plgdao.editPelanggan(model);
-			return "redirect:/mhs/home-mhs";
+			return "redirect:/plg/homeuser";
 		}
 	}
-//	@RequestMapping(value="pesan-plg", method=RequestMethod.GET)
-//	public ModelAndView pesanPage(@RequestParam("idpel") String idpel) {
-//		ModelAndView mav = new ModelAndView("pesan-plg");
-//		List<Pemesanan> listnya = pesandao.getAllPesanPlg(idpel);
-//		DateFormat d = new SimpleDateFormat("yyyy-MM-dd");
-//		Date date = new Date();
-//		for(Pemesanan item : listnya) {
-//			LocalDate start = LocalDate.parse(d.format(date), DateTimeFormatter.ISO_LOCAL_DATE);
-//			LocalDate finish = LocalDate.parse(item.getTgl_kembali(), DateTimeFormatter.ISO_LOCAL_DATE);
-//			Duration diff = Duration.between(finish.atStartOfDay(), start.atStartOfDay());
-////			pesandao.updatePesan(item);
-//			}
-//		}
-//		List<Pemesanan> pesan = pesandao.getAllPesanPlg(idpel);
-//		mav.addObject("pesan", pesan);
-//		return mav;
-//	}
+	@RequestMapping(value="pesan-plg", method=RequestMethod.GET)
+	public ModelAndView pesanPage(@RequestParam("idpel") int idpel) {
+		ModelAndView mav = new ModelAndView("pesan-plg");
+		
+		List<Pemesanan> pesan = pesandao.getAllPesanPlg(idpel);
+		mav.addObject("pesan", pesan);
+		return mav;
+	}
+	@RequestMapping(value="histori-plg", method=RequestMethod.GET)
+	public ModelAndView historiPage(@RequestParam("idpel") int idpel) {
+		ModelAndView mav = new ModelAndView("historipesan-plg");
+		List<Pemesanan> list = pesandao.getHistoriPlg(idpel);
+		mav.addObject("pesan", list);
+		return mav;
+	}
 }

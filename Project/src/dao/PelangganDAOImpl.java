@@ -26,7 +26,7 @@ public class PelangganDAOImpl implements PelangganDAO{
 	
 	@Transactional
 	@Override
-	public Pelanggan getPelanggan(String idpel) {
+	public Pelanggan getPelanggan(int idpel) {
 		Session session = ses.getCurrentSession();
 		Pelanggan plg = session.get(Pelanggan.class, idpel);
 		return plg;

@@ -26,7 +26,7 @@ public class LayananDAOImpl implements LayananDAO {
 
 	@Transactional
 	@Override
-	public Layanan getLayanan(String idlay) {
+	public Layanan getLayanan(int idlay) {
 		Session session = ses.getCurrentSession();
 		Layanan layanan = session.get(Layanan.class, idlay);
 		return layanan;
@@ -43,7 +43,7 @@ public class LayananDAOImpl implements LayananDAO {
 	@Override
 	public List<Layanan> getAllLayanan() {
 		Session session = ses.getCurrentSession();
-		List<Layanan> layanan = session.createQuery("from Layanan").list();
+		List<Layanan> layanan = session.createQuery("from layanan").list();
 		return layanan;
 	}
 
