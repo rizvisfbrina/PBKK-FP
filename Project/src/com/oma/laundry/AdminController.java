@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,6 +20,7 @@ import model.Pelanggan;
 import model.Pemesanan;
 
 @Controller
+@Scope("session")
 @RequestMapping("/admin")
 public class AdminController {
 	@RequestMapping("/adminhome")

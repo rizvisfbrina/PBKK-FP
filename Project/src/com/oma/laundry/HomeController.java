@@ -5,12 +5,14 @@ import model.*;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+@Scope("session")
 public class HomeController {
 	@RequestMapping(value = { "/a", "/" })
 	public String showMyPage() {
@@ -95,7 +98,8 @@ public class HomeController {
 				if (user.getUsername().equals(modell.getUsername())
 						&& user.getPassword().equals(modell.getPassword())) {
 					ModelAndView mav = new ModelAndView("redirect:/home-plg");
-					redir.addFlashAttribute("modell", user);
+					//redir.addFlashAttribute("modell", user);
+					redir.addAttribute("modell", user);
 					ses.merge(user);
 					ses.getTransaction().commit();
 					return mav;
@@ -119,7 +123,8 @@ public class HomeController {
 				if (admin.getUsername().equals(modell.getUsername())
 						&& admin.getPassword().equals(modell.getPassword())) {
 					ModelAndView mav = new ModelAndView("redirect:/admin/adminhome");
-					redir.addFlashAttribute("modell", admin);
+					//redir.addFlashAttribute("modell", admin);
+					redir.addAttribute("modell", admin);
 					ses.merge(admin);
 					ses.getTransaction().commit();
 					return mav;

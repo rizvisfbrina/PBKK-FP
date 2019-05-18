@@ -56,7 +56,7 @@
 			       	</c:if>
 			     	
 			     	<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="logout">Pesanan</a>
+			        	<a class="nav-link js-scroll-trigger" href="pesanan">Pesanan</a>
 			       	</li>
 					<li class="nav-item">
 			        	<a class="nav-link js-scroll-trigger" href="logout">Logout</a>
