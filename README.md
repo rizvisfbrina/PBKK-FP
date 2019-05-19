@@ -17,7 +17,6 @@ OMA Laundry merupakan aplikasi laundry berbasis web dengan tujuan untuk memudahk
  - Melihat layanan laundry yang tersedia
  - Melakukan order laundry
  - Melihat status cucian
- - Melihat dan mencetak invoice transaksi laundry
  - Melihat histori transaksi laundry
 ```
 **Admin**
@@ -25,23 +24,17 @@ OMA Laundry merupakan aplikasi laundry berbasis web dengan tujuan untuk memudahk
  Kebutuhan Admin :
  - Mendaftar pegawai baru
  - Mengelola jenis layanan laundry
- - Melihat dan mencetak invoice transaksi laundry
  - Melihat laporan semua transaksi laundry
- - Melihat daftar pegawai
-```
-**Pegawai**
-``` 
-  Kebutuhan Pegawai :
  - Mengganti status order pelanggan
  - Melihat list order pelanggan
-
 ```
 
 ### Use Case Diagram
-![Usecase Diagram](https://user-images.githubusercontent.com/32903576/56175523-b9dd8300-6021-11e9-994a-f5cc59510ce5.PNG)
+![updatee](https://user-images.githubusercontent.com/32873367/57984456-1d762880-7a86-11e9-96fb-66f53b008eff.PNG)
 
 ### Site Map Aplikasi
-![Sitemap](https://user-images.githubusercontent.com/32903576/56175526-bd710a00-6021-11e9-8ad7-1cfa4849cb9a.png)
+![Capture](https://user-images.githubusercontent.com/32903576/57984266-54e3d580-7a84-11e9-9766-f9e7b9d2ccac.PNG)
+
 
 ### Tampilan Web
 Halaman Home

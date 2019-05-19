@@ -3,10 +3,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="pelanggan")
 public class Pelanggan {
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
 	@Column(name="nama")
 	private String nama;
 	
@@ -17,12 +22,17 @@ public class Pelanggan {
 	@Column(name="idpel")
 	private int idpel;
 	
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	@Pattern(regexp="\\\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,4}\\\\b")
 	@Column(name="email")
 	private String email;
 	
 	@Column(name="no_hp")
 	private String nohp;
 	
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
 	@Column(name="password")
 	private String password;
 	

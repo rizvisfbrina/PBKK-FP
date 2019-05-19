@@ -45,7 +45,7 @@
 				        	<a class="nav-link js-scroll-trigger" href="pemesanan-plg?idpel=${model.idpel }">Pemesanan</a>
 				       	</li>
 					<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="logout">Logout</a>
+			        	<a class="nav-link js-scroll-trigger" href="logout">${model.nama},Logout</a>
 			       	</li>
 			    
 				</ul>
@@ -54,9 +54,11 @@
 	</nav>
 
 	<!-- Content -->
-	<h2 style="margin-top: 100px;">Daftar Layanan</h2>
+	<div align="center">
+	<br/>
+	<h2 style="margin-top: 100px;" align="center">Daftar Layanan</h2>
 
-	<table id = "table">
+	<table class = "table">
 		<tr>
 		    <th>Jenis Layanan</th>
 		    <th>Harga</th> 
@@ -69,11 +71,12 @@
 			    <td>${value.harga }</td>
 			    <td>${value.durasi }</td>
 			    <td>
-			    	<a href="pesan/prosesPesan?idlay=${value.idlay}&idpel=${model.idpel}">Pesan</a>
+			    	<a href="../pesan/tambahPesan?idpel=${model.idpel}">Pesan</a>
 			    </td>
 		 	 </tr>
 		 </c:forEach>
 	</table>
+	</div>
 	
 	<!-- Footer -->
 	<footer>

@@ -4,13 +4,19 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import oma.dao.LayananDAO;
 import oma.dao.PesanDAO;
@@ -30,18 +36,34 @@ public class PesanController {
 	LayananDAO layanandao;
 	
 	
-	@RequestMapping(value="prosesPesan", method=RequestMethod.GET)
-	public String prosesPesan(@RequestParam("idlay") int idlay, 
-			@RequestParam("idpel") int idpel) {
-		Pemesanan pesan = new Pemesanan();
-		//layanan
-		Layanan lyn = layanandao.getLayanan(idlay);
-		layanandao.editLayanan(lyn);
-		
-		pesan.setIdlay(idlay);
-		pesan.setIdpel(idpel);
-		dao.savePesan(pesan);
-		return "prosesTambahPesan";
+//	@RequestMapping(value="prosesPesan", method=RequestMethod.GET)
+//	public ModelAndView prosesPesan(@RequestParam("idlay") int idlay, 
+//			@RequestParam("idpel") int idpel) {
+//		ModelAndView mav = new ModelAndView("prosesTambahPesan");
+//		Pemesanan list = dao.getSpesifik(idpel);
+//		Layanan list2 = layanandao.getLayanan(idlay);
+//		mav.addObject("pesan", list);
+//		mav.addObject("layanan", list2);
+//		return mav;
+//	}
+//	
+	@RequestMapping(value="tambahPesan", method=RequestMethod.GET)
+	public ModelAndView daftarBaruPlg(@Valid @ModelAttribute("model") Pemesanan model, 
+			//@RequestParam("idlay") int idlay, 
+			@RequestParam("idpel") int idpel,
+			BindingResult bindres) {
+		if(bindres.hasErrors()) {
+			ModelAndView mav = new ModelAndView("logged-pelanggan");
+			return mav;
+		}
+		else {
+			ModelAndView mav = new ModelAndView("prosesTambahPesan");
+			Pemesanan list = dao.getSpesifik(idpel);
+			//Layanan list2 = layanandao.getLayanan(idlay);
+			mav.addObject("pesan", list);
+			//mav.addObject("layanan", list2);
+			return mav;
+		}
 	}
 	
 	@RequestMapping(value="prosesTambahPesan", method=RequestMethod.GET)

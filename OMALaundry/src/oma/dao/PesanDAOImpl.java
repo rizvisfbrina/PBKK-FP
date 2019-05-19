@@ -46,7 +46,15 @@ public class PesanDAOImpl implements PesanDAO {
 		//System.out.println(pinjam);
 		return pesan;
 	}
-	
+	@Transactional
+	@Override
+	public List<Pemesanan> getAllTransaksi(){
+		Session session = s.getCurrentSession();
+		String sql = "from Pemesanan as ps where ps.status = 'Menunggu' or ps.status = 'Proses'";
+		List<Pemesanan> pesan = session.createQuery(sql).list();
+		//System.out.println(pinjam);
+		return pesan;
+	}
 	@Transactional
 	@Override
 	public Pemesanan getSpesifik(int idpesan) {
@@ -66,7 +74,7 @@ public class PesanDAOImpl implements PesanDAO {
 	@Override
 	public List<Pemesanan> getHistoriPlg(int idpel){
 		Session session = s.getCurrentSession();
-		String sql= "from Pemesenan as ps where ps.idpel = '"+idpel+"' and (ps.status = 'Selesai')";
+		String sql= "from Pemesanan as ps where ps.idpel = '"+idpel+"'";
 		List<Pemesanan> list = session.createQuery(sql).list();
 		return list;
 	}
@@ -75,7 +83,7 @@ public class PesanDAOImpl implements PesanDAO {
 	@Override
 	public List<Pemesanan> getHistoriAdmin(){
 		Session session = s.getCurrentSession();
-		String sql = "from Pemesenan as ps where ps.status = 'Selesai'";
+		String sql = "from Pemesanan as ps where ps.status = 'Selesai'";
 		List<Pemesanan> pesan = session.createQuery(sql).list();
 		return pesan;
 	}

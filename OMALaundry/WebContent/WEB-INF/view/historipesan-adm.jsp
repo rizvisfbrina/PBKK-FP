@@ -22,31 +22,25 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     	<div class="container">
-      		<a class="navbar-brand js-scroll-trigger" href="a">OMA Laundry</a>
+      		<a class="navbar-brand js-scroll-trigger" href="home-adm">OMA Laundry</a>
       		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         		Menu <i class="fas fa-bars"></i>
       		</button>
       		<div class="collapse navbar-collapse" id="navbarResponsive">
         		<ul class="navbar-nav text-uppercase ml-auto">
-				<c:if test = "${modell != null}">
-					<c:if test = "${modell.role == 'Admin'}">
+				
           			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="editlayanan">Layanan</a>
+            			<a class="nav-link js-scroll-trigger" href="../layanan/tambahLayanan">Layanan</a>
           			</li>
           			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="daftarplg-admin">Pelanggan</a>
+            			<a class="nav-link js-scroll-trigger" href="daftarplg-adm">Pelanggan</a>
           			</li>
 			        <li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="historipesan-adm">Histori Pemesanan</a>
+			        	<a class="nav-link js-scroll-trigger" href="histori-adm">Histori Pemesanan</a>
 			       	</li>
-			       	<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="pesan-adm">Pemesanan</a>
-			       	</li>
-			       	</c:if>
 					<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="logout">Logout</a>
+			        	<a class="nav-link js-scroll-trigger" href="../logout">${model.nama},Logout</a>
 			       	</li>
-			    </c:if>
 			    
 				</ul>
 			</div>
@@ -56,15 +50,12 @@
 	<!-- Layanan -->
 	<section id="services">
     	<div class="container">
-		<c:if test = "${modell != null}">
-			<c:if test = "${modell.role == 'Admin'}">
     			<h2>Histori Pemesanan</h2>
 				<table style="width:100%">
 					<tr>
 					    <th>ID Pelanggan</th>
 					    <th>Jenis Layanan</th> 
 					    <th>Kilo</th>
-					    <th>Harga</th>
 					    <th>Total</th>
 					    <th>Tanggal Taruh</th>
 					    <th>Tanggal Ambil</th>
@@ -74,9 +65,8 @@
 				 	 <c:forEach var="value" items="${pesan }"> 
 					 	 <tr>
 					 	 	<th>${value.idlay }</th>
-						    <th>${value.jenis_lay }</th>
+						    <th>${value.jenisLayanan }</th>
 						    <th>${value.kilo }</th> 
-						    <th>${value.harga }</th>
 						    <th>${value.total }</th>
 						    <th>${value.tgl_taruh }</th>
 						    <th>${value.tgl_ambil }</th>
@@ -84,18 +74,7 @@
 					 	 </tr>
 					 </c:forEach>
 				</table>
-    		</c:if>
-    	</c:if>
-    	
-    	<c:if test = "${modell == null}">
-			<div class="row">
-        		<div class="col-lg-12 text-center">
-          			<h2 class="section-heading">Admin Homepage</h2>
-          			<h3 class="section-subheading text-muted">Login dahulu sebagai admin</h3>
-        		</div>
-      		</div>
-      	</c:if>
-      	
+   
 		</div>
 	</section>
 	

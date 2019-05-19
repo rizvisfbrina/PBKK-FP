@@ -68,11 +68,10 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/tambah-adm")
-	public String tambahPustakawanPage(Model adm) {
+	public String tambahAdminPage(Model adm) {
 		adm.addAttribute("adm", new Admin());
 		return "tmbh-admin";
 	}
-	
 	
 	@RequestMapping("/daftarAdmin")
 	public ModelAndView daftarBaruPtk(@Valid @ModelAttribute("adm") Admin adm, BindingResult bindres) {
@@ -87,16 +86,15 @@ public class AdminController {
 		}
 	}
 	
-	//INI BUAT NGEDIT DATA PUSTAKAWAN
 	@RequestMapping("/editAdm")
 	public String editAdminPage() {
 		return "editdata-adm";
 	}
 	
-	@RequestMapping("/editDb")
+	@RequestMapping("/editDbAdmin")
 	public String editAdm(@Valid @ModelAttribute("model") Admin model, BindingResult bind) {
 		if(bind.hasErrors()) {
-			return "redirect:/adm/editAdm";
+			return "editAdm";
 		}
 		else {
 			dao.editAdm(model);
@@ -135,15 +133,15 @@ public class AdminController {
 		}
 	}
 	
-	@RequestMapping(value="/editLayanan", method=RequestMethod.GET)
-	public String editLayananPage(Model layanan) {
+	@RequestMapping("/editLayanan")
+	public String editLayananPage() {
 		return "editlayanan";
 	}
 	
 	@RequestMapping("/ubahLayanan")
-	public String ubahLayanan(@Valid @ModelAttribute("layanan") Layanan layanan,BindingResult bindres) {
+	public String ubahLayanan(@Valid @ModelAttribute("model") Layanan layanan,BindingResult bindres) {
 		if(bindres.hasErrors()) {
-			return "editlayanan";
+			return "editLayanan";
 		}
 		else {
 			lyndao.editLayanan(layanan);
@@ -157,5 +155,30 @@ public class AdminController {
 		List<Pemesanan> list = pesandao.getHistoriAdmin();
 		mav.addObject("pesan", list);
 		return mav;
+	}
+	@RequestMapping("/transaksi")
+	public ModelAndView transaksiPage() {
+		ModelAndView mav = new ModelAndView("transaksi");
+		List<Pemesanan> list = pesandao.getAllTransaksi();
+		mav.addObject("pesan", list);
+		return mav;
+	}
+	@RequestMapping(value="prosesStat",  method=RequestMethod.GET)
+	public ModelAndView statPage(@ModelAttribute("pesan") Pemesanan pesan, @RequestParam("idpesan") int idpesan) {
+		ModelAndView mav = new ModelAndView("pesanstat-adm");
+		Pemesanan ps = pesandao.getSpesifik(idpesan);
+		mav.addObject("statusx",ps);
+		return mav;
+	}
+	@RequestMapping("/prosesTransaksi")
+	public String ubahTransaksiPage(@ModelAttribute("statusx") Pemesanan pesan,BindingResult bind) {
+		if(bind.hasErrors()) {
+			return "redirect:/adm/transaksi";
+		}
+		else {
+			//Pemesanan ps = pesandao.getSpesifik(idpesan);
+			pesandao.updatePesan(pesan);		
+			return "redirect:/adm/transaksi";
+		}
 	}
 }

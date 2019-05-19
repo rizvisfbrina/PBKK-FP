@@ -22,7 +22,7 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     	<div class="container">
-      		<a class="navbar-brand js-scroll-trigger" href="a">OMA Laundry</a>
+      		<a class="navbar-brand js-scroll-trigger" href="home-adm">OMA Laundry</a>
       		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         		Menu <i class="fas fa-bars"></i>
       		</button>
@@ -30,19 +30,16 @@
         		<ul class="navbar-nav text-uppercase ml-auto">
 				
           			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="editlayanan">Layanan</a>
+            			<a class="nav-link js-scroll-trigger" href="../layanan/tambahLayanan">Layanan</a>
           			</li>
           			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="daftarplg-admin">Pelanggan</a>
+            			<a class="nav-link js-scroll-trigger" href="daftarplg-adm">Pelanggan</a>
           			</li>
 			        <li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="historipesan-adm">Histori Pemesanan</a>
-			       	</li>
-			       	<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="pesan-adm">Pemesanan</a>
+			        	<a class="nav-link js-scroll-trigger" href="histori-adm">Histori Pemesanan</a>
 			       	</li>
 					<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="logout">Logout</a>
+			        	<a class="nav-link js-scroll-trigger" href="../logout">${model.nama},Logout</a>
 			       	</li>
 			    
 				</ul>
@@ -63,18 +60,22 @@
       		</div>
     		<div class="row text-center">
       			<div class="col-lg-4">
-      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="editLayanan">Tambah Layanan</a>
+      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="../layanan/tambahLayanan">Tambah Layanan</a>
       			</div>
       			<div class="col-lg-4">
-      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="tambah-karyawan">Tambah Pegawai</a>
+      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="tambah-adm">Tambah Pegawai</a>
       			</div>
       			<div class="col-lg-4">
-      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="daftaruser-admin">Daftar Pelanggan</a>
+      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="daftarplg-adm">Daftar Pelanggan</a>
 				</div>
 			</div>
 			<div class="row text-center" style="margin-top: 50px;">
       			<div class="col-lg-4">
-      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="laporan">Laporan Transaksi</a>
+      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="histori-adm">Histori Pemesanan</a>
+
+      		</div>
+      		<div class="col-lg-4">
+      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="transaksi">Pemesanan</a>
 
       		</div>
       		</div>

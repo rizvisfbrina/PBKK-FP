@@ -88,7 +88,7 @@ public class HomeController {
 		}
 	}
 	
-	@RequestMapping("/signup")
+	@RequestMapping("/sign-up")
 	public String signupPagePelanggan(Model model) {
 		model.addAttribute("model", new Pelanggan());
 		return "signup-page";

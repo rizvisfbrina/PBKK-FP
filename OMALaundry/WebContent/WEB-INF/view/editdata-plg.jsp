@@ -21,47 +21,41 @@
 	<!-- navbar -->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     	<div class="container">
-      		<a class="navbar-brand js-scroll-trigger" href="plg/home-plg">OMA Laundry</a>
+      		<a class="navbar-brand js-scroll-trigger" href="home-plg">OMA Laundry</a>
       		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         		Menu <i class="fas fa-bars"></i>
       		</button>
       		<div class="collapse navbar-collapse" id="navbarResponsive">
         		<ul class="navbar-nav text-uppercase ml-auto">
-          			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="editPlg">Ubah Data</a>
-          			</li>		     	
-			     	<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="pemesanan-plg?idpel=${model.idpel }">Pemesanan</a>
-			       	</li>
+	          			<li class="nav-item">
+	            			<a class="nav-link js-scroll-trigger" href="editPlg">Ubah Data</a>
+	          			</li>
+				        <li class="nav-item">
+				        	<a class="nav-link js-scroll-trigger" href="pemesanan-plg?idpel=${model.idpel }">Pemesanan</a>
+				       	</li>
 					<li class="nav-item">
 			        	<a class="nav-link js-scroll-trigger" href="logout">${model.nama},Logout</a>
 			       	</li>
+			    
 				</ul>
 			</div>
 		</div>
 	</nav>
 
 	<!-- content -->
-	<div class=top style="margin-top: 100px;">
-		<div class=header>
+	<div class=top style="margin-top: 100px;" align="center">
+		<div align="center">
 			<h1>EDIT DATA</h1>
 		</div>
 	</div>
 
 	<br></br>
-	<div class="besar">
-		<div class="header">
-			<div class="logo">
-				<h3>OMALaundry</h3>
-			</div>
-		</div>
+	<div align="center">
 		<div class="badan">
 			<div class="form-css">
 				<form:form action="editDb" method="POST" modelAttribute="model">
 					Nama : <br />
 					<form:input path="nama"/> <br /><br />
-					ID Pelanggan : <br />
-					<form:input disabled="true" path="idpel" /> <br /><br />
 					Username : <br />
 					<form:input path="username"/> <br /><br />
 					Password : <br />
