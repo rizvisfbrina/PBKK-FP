@@ -135,6 +135,21 @@ public class AdminController {
 		}
 	}
 	
+	@RequestMapping(value="/editLayanan", method=RequestMethod.GET)
+	public String editLayananPage(Model layanan) {
+		return "editlayanan";
+	}
+	
+	@RequestMapping("/ubahLayanan")
+	public String ubahLayanan(@Valid @ModelAttribute("layanan") Layanan layanan,BindingResult bindres) {
+		if(bindres.hasErrors()) {
+			return "editlayanan";
+		}
+		else {
+			lyndao.editLayanan(layanan);
+			return "redirect:/adm/home-adm";
+		}
+	}
 	
 	@RequestMapping("/histori-adm")
 	public ModelAndView historiPesanPage() {

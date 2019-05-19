@@ -14,7 +14,7 @@
  	<link href="<c:url value="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"/>" rel='stylesheet' type='text/css'>
   	<link href="<c:url value="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"/>" rel='stylesheet' type='text/css'>
 	<meta charset="ISO-8859-1">
-	<title>RBTCAssistant</title>
+	<title>OMALaundry</title>
 </head>
 <body>
 	<!-- navbar -->
@@ -49,7 +49,7 @@
 	<!-- content -->
 	<br /><br />
 	<h1 style="margin-top: 100px;">UBAH LAYANAN</h1>
-	<form:form action="ubahLayanan" method="POST" modelAttribute="statusnya">
+	<form:form action="ubahLayanan" method="POST" modelAttribute="layanan">
 	<h4>Data Layanan</h4>
 		IDLayanan : <br />
 		<form:input path="idlay" /> <br /><br />

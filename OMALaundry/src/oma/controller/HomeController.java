@@ -26,7 +26,7 @@ import oma.dao.AdminDAO;
 import oma.model.*;
 
 @Controller
-@RequestMapping("/OMALaundry")
+//@RequestMapping("/OMALaundry")
 @SessionAttributes("model")
 public class HomeController {
 
@@ -41,16 +41,16 @@ public class HomeController {
 		return "home-page";
 	}
 	
-	@RequestMapping("/login")
+	@RequestMapping("login")
 	public String loginPage(Model model){
 		model.addAttribute("model", new Login());
-		return "login-page";
+		return "loginpage";
 	}
 	
 	@RequestMapping("/prosesLogin")
 	public ModelAndView prosesLogin(@Valid @ModelAttribute("model") Login data, BindingResult bindres) {
 		if(bindres.hasErrors()) {
-			ModelAndView mav = new ModelAndView("/OMALaundry/login");
+			ModelAndView mav = new ModelAndView("loginpage");
 			return mav;
 		}
 		else {
@@ -62,7 +62,7 @@ public class HomeController {
 						return mav;
 					}
 					else {
-						ModelAndView mav = new ModelAndView("/OMALaundry/login");
+						ModelAndView mav = new ModelAndView("loginpage");
 						return mav;
 					}
 
@@ -76,12 +76,12 @@ public class HomeController {
 						return mav;
 					}
 					else {
-						ModelAndView mav = new ModelAndView("/OMALaundry/login");
+						ModelAndView mav = new ModelAndView("loginpage");
 						return mav;
 					}
 			}
 			else {
-				ModelAndView mav = new ModelAndView("/OMALaundry/login");
+				ModelAndView mav = new ModelAndView("loginpage");
 				return mav;
 			}
 			
@@ -97,6 +97,6 @@ public class HomeController {
 	@RequestMapping("logout")
 	public String logout(SessionStatus session, ModelMap model) {
 		session.setComplete();
-		return "redirect:/OMALaundry/";
+		return "redirect:/";
 	}
 }

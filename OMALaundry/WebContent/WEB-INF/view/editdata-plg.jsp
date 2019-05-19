@@ -31,10 +31,10 @@
             			<a class="nav-link js-scroll-trigger" href="editPlg">Ubah Data</a>
           			</li>		     	
 			     	<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="pemesanan-plg?id=${model.idpel }">Pemesanan</a>
+			        	<a class="nav-link js-scroll-trigger" href="pemesanan-plg?idpel=${model.idpel }">Pemesanan</a>
 			       	</li>
 					<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="OMALaundry/logout">${model.nama},Logout</a>
+			        	<a class="nav-link js-scroll-trigger" href="logout">${model.nama},Logout</a>
 			       	</li>
 				</ul>
 			</div>

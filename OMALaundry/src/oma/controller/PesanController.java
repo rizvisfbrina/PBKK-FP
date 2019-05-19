@@ -32,6 +32,20 @@ public class PesanController {
 	
 	@RequestMapping(value="prosesPesan", method=RequestMethod.GET)
 	public String prosesPesan(@RequestParam("idlay") int idlay, 
+			@RequestParam("idpel") int idpel) {
+		Pemesanan pesan = new Pemesanan();
+		//layanan
+		Layanan lyn = layanandao.getLayanan(idlay);
+		layanandao.editLayanan(lyn);
+		
+		pesan.setIdlay(idlay);
+		pesan.setIdpel(idpel);
+		dao.savePesan(pesan);
+		return "prosesTambahPesan";
+	}
+	
+	@RequestMapping(value="prosesTambahPesan", method=RequestMethod.GET)
+	public String prosesTambahPesan(@RequestParam("idlay") int idlay, 
 			@RequestParam("idpel") int idpel, 
 			@RequestParam("kilo") int kilo,
 			@RequestParam("harga") int harga) {
@@ -56,6 +70,6 @@ public class PesanController {
 		pesan.setTgl_ambil(d.format(c.getTime()));
 		pesan.setIdpel(idpel);
 		dao.savePesan(pesan);
-		return "redirect:/plg/home-plg";
+		return "redirect:plg/home-plg";
 	}
 }

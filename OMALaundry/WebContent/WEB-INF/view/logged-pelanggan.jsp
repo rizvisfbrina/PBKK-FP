@@ -32,60 +32,21 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     	<div class="container">
-      		<a class="navbar-brand js-scroll-trigger" href="a">OMA Laundry</a>
+      		<a class="navbar-brand js-scroll-trigger" href="home-plg">OMA Laundry</a>
       		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         		Menu <i class="fas fa-bars"></i>
       		</button>
       		<div class="collapse navbar-collapse" id="navbarResponsive">
         		<ul class="navbar-nav text-uppercase ml-auto">
-          			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="layanan">Layanan</a>
-          			</li>
-          			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="about">About</a>
-          			</li>
-          			       			
-				<c:if test = "${modell == null}">
-					<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="login">Login</a>
-			       	</li>
-			       	<li class="nav-item">
-			            <a class="nav-link js-scroll-trigger" href="registrasi">Registrasi</a>
-			        </li>
-			    </c:if>
-			    
-				<c:if test = "${modell != null}">
-					<c:if test = "${modell.role == 'Admin'}">
-          			
-          			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="admin/pegawai">Pegawai</a>
-          			</li>
-			        <li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="historipesan-adm">Histori Pemesanan</a>
-			       	</li>
-			       	</c:if>
-			     	
-			     	<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="logout">Pesanan</a>
-			       	</li>
-					<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="logout">Logout</a>
-			       	</li>
-			    </c:if>
-			    
-			    <c:if test = "${modell != null}">
-					<c:if test = "${modell.role == 'Pelanggan'}">
 	          			<li class="nav-item">
 	            			<a class="nav-link js-scroll-trigger" href="editPlg">Ubah Data</a>
 	          			</li>
 				        <li class="nav-item">
-				        	<a class="nav-link js-scroll-trigger" href="pemesanan-plg?id=${model.idpel }">Pemesanan</a>
+				        	<a class="nav-link js-scroll-trigger" href="pemesanan-plg?idpel=${model.idpel }">Pemesanan</a>
 				       	</li>
-			       	</c:if>
 					<li class="nav-item">
 			        	<a class="nav-link js-scroll-trigger" href="logout">Logout</a>
 			       	</li>
-			    </c:if>
 			    
 				</ul>
 			</div>
@@ -93,9 +54,9 @@
 	</nav>
 
 	<!-- Content -->
-	<h2>Daftar Layanan</h2>
+	<h2 style="margin-top: 100px;">Daftar Layanan</h2>
 
-	<table id = "tabel">
+	<table id = "table">
 		<tr>
 		    <th>Jenis Layanan</th>
 		    <th>Harga</th> 

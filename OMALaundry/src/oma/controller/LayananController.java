@@ -51,22 +51,4 @@ public class LayananController {
 		return "redirect:/adm/home-adm";
 	}
 	
-//	@RequestMapping(value="/editStatus", method=RequestMethod.GET)
-//	public String editStatusPage(Model layanan, @RequestParam("idlay") int idlay) {
-//		Layanan lyn = dao.getLayanan(idlay);
-//		layanan.addAttribute("statusnya", lyn);
-//		return "editstatbuku-ptk";
-//	}
-	
-//	@RequestMapping("/ubahStat")
-//	public String editStatBuku(@Valid @ModelAttribute("statusnya") Layanan layanan,BindingResult bindres) {
-//		if(bindres.hasErrors()) {
-//			return "editStatus";
-//		}
-//		else {
-//			dao.editLayanan(layanan);
-//			return "redirect:/ptk/home-ptk";
-//		}
-//	}
-	
 }

@@ -32,7 +32,7 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     	<div class="container">
-      		<a class="navbar-brand js-scroll-trigger" href="a">OMA Laundry</a>
+      		<a class="navbar-brand js-scroll-trigger" href="OMALaundry">OMA Laundry</a>
       		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         		Menu <i class="fas fa-bars"></i>
       		</button>
@@ -45,34 +45,12 @@
             			<a class="nav-link js-scroll-trigger" href="about">About</a>
           			</li>
           			       			
-				<c:if test = "${modell == null}">
 					<li class="nav-item">
 			        	<a class="nav-link js-scroll-trigger" href="login">Login</a>
 			       	</li>
 			       	<li class="nav-item">
-			            <a class="nav-link js-scroll-trigger" href="registrasi">Registrasi</a>
+			            <a class="nav-link js-scroll-trigger" href="sign-up">Registrasi</a>
 			        </li>
-			    </c:if>
-			    
-				<c:if test = "${modell != null}">
-					<c:if test = "${modell.role == 'Admin'}">
-          			
-          			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="admin/pegawai">Pegawai</a>
-          			</li>
-			        <li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="historipesan-adm">Histori Pemesanan</a>
-			       	</li>
-			       	</c:if>
-			     	
-			     	<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="logout">Pesanan</a>
-			       	</li>
-					<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="logout">Logout</a>
-			       	</li>
-			    </c:if>
-			    
 				</ul>
 			</div>
 		</div>

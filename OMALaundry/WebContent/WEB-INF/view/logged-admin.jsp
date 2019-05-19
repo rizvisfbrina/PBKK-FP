@@ -28,8 +28,7 @@
       		</button>
       		<div class="collapse navbar-collapse" id="navbarResponsive">
         		<ul class="navbar-nav text-uppercase ml-auto">
-				<c:if test = "${modell != null}">
-					<c:if test = "${modell.role == 'Admin'}">
+				
           			<li class="nav-item">
             			<a class="nav-link js-scroll-trigger" href="editlayanan">Layanan</a>
           			</li>
@@ -42,11 +41,9 @@
 			       	<li class="nav-item">
 			        	<a class="nav-link js-scroll-trigger" href="pesan-adm">Pemesanan</a>
 			       	</li>
-			       	</c:if>
 					<li class="nav-item">
 			        	<a class="nav-link js-scroll-trigger" href="logout">Logout</a>
 			       	</li>
-			    </c:if>
 			    
 				</ul>
 			</div>
@@ -57,8 +54,7 @@
 	<!-- Layanan -->
 	<section id="services">
     	<div class="container">
-		<c:if test = "${modell != null}">
-			<c:if test = "${modell.role == 'Admin'}">
+		
     		<div class="row">
         		<div class="col-lg-12 text-center">
           			<h2 class="section-heading">Admin Homepage</h2>
@@ -67,7 +63,7 @@
       		</div>
     		<div class="row text-center">
       			<div class="col-lg-4">
-      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="editlayanan">Tambah Layanan</a>
+      				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="editLayanan">Tambah Layanan</a>
       			</div>
       			<div class="col-lg-4">
       				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="tambah-karyawan">Tambah Pegawai</a>
@@ -81,19 +77,7 @@
       				<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="laporan">Laporan Transaksi</a>
 
       		</div>
-      		</div>  
-    		</c:if>
-    	</c:if>
-    	
-    	<c:if test = "${modell == null}">
-			<div class="row">
-        		<div class="col-lg-12 text-center">
-          			<h2 class="section-heading">Admin Homepage</h2>
-          			<h3 class="section-subheading text-muted">Login dahulu sebagai admin</h3>
-        		</div>
       		</div>
-      	</c:if>
-      	
 		</div>
 	</section>
 	

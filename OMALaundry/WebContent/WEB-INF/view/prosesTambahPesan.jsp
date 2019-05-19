@@ -1,95 +1,79 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="<c:url value="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<link href="<c:url value="/resources/fontawesome-free/css/all.min.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/oma.css" />" rel="stylesheet">
-	
-	<link href="<c:url value="https://fonts.googleapis.com/css?family=Montserrat:400,700" />" rel="stylesheet" type="text/css">
+    
+    <link href="<c:url value="https://fonts.googleapis.com/css?family=Montserrat:400,700" />" rel="stylesheet" type="text/css">
   	<link href="<c:url value="https://fonts.googleapis.com/css?family=Kaushan+Script"/>" rel='stylesheet' type='text/css'>
  	<link href="<c:url value="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"/>" rel='stylesheet' type='text/css'>
   	<link href="<c:url value="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"/>" rel='stylesheet' type='text/css'>
-  
 	<meta charset="ISO-8859-1">
-	
-	<title>OMA Laundry</title>
-<style>
-.verticalcenter {
-    display: table-cell;
-    height: 400px;
-    vertical-align: middle;
-}
-</style>
+	<title>OMALaundry</title>
 </head>
-
-<body id="page-top">
-	<!-- Navigation -->
+<body>
+	<!-- navbar -->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     	<div class="container">
-      		<a class="navbar-brand js-scroll-trigger" href="a">OMA Laundry</a>
+      		<a class="navbar-brand js-scroll-trigger" href="plg/home-plg">OMA Laundry</a>
       		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         		Menu <i class="fas fa-bars"></i>
       		</button>
       		<div class="collapse navbar-collapse" id="navbarResponsive">
         		<ul class="navbar-nav text-uppercase ml-auto">
-	          			<li class="nav-item">
-	            			<a class="nav-link js-scroll-trigger" href="editPlg">Ubah Data</a>
-	          			</li>
-				        <li class="nav-item">
-				        	<a class="nav-link js-scroll-trigger" href="pemesanan-plg?idpel=${model.idpel }">Pemesanan</a>
-				       	</li>
-					<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="logout">Logout</a>
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" href="editPlg">Ubah Data</a>
+          			</li>		     	
+			     	<li class="nav-item">
+			        	<a class="nav-link js-scroll-trigger" href="pemesanan-plg?idpel=${model.idpel }">Pemesanan</a>
 			       	</li>
-			    
+					<li class="nav-item">
+			        	<a class="nav-link js-scroll-trigger" href="logout">${model.nama},Logout</a>
+			       	</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<!-- Content -->
-	<h2 style="margin-top:100px;">Daftar Pemesanan</h2>
-	<div class="container">
-	<table class= "table">
-		<tr>
-		    <th>ID Pel</th>
-		    <th>Jenis Layanan</th>
-		    <th>Kilo</th>
-		    <th>Total</th>
-		    <th>Tanggal Taruh</th> 
-		    <th>Tanggal Ambil</th>
-		    <th>Status</th>
-	 	 </tr>
-	 	 <c:forEach var="value" items="${pesan }"> 
-		 	 <tr>
-		 	 	<td>${value.idpel }</td>
-		 	 	<td>${value.jenis_lay }</td>
-		 	 	<td>${value.kilo }</td>
-		 	 	<td>${value.total }</td>
-			    <td>${value.tgl_taruh }</td>
-			    <td>${value.tgl_ambil }</td>
-			    <td>
-			    	<c:if test = "${value.status == 'Menunggu' }">
-				    	<p style="color: red;">${value.status }</p>
-				    </c:if>
-				    <c:if test = "${value.status != 'Proses' }">
-				    	<p>${value.status }</p>
-				    </c:if>
-				    <c:if test = "${value.status != 'Selesai' }">
-				    	<p>${value.status }</p>
-				    </c:if>
-			    </td>
-		 	 </tr>
-		 </c:forEach>
-	</table>
+	<!-- content -->
+	<div class=top style="margin-top: 100px;">
+		<div class=header>
+			<h1>Tambah Pemesanan</h1>
+		</div>
 	</div>
-	
+
+	<br></br>
+	<div class="besar">
+		<div class="header">
+			<div class="logo">
+				<h3>OMALaundry</h3>
+			</div>
+		</div>
+		<div class="badan">
+			<div class="form-css">
+				<form:form action="prosesTambahPesan" method="POST" modelAttribute="model">
+					ID Pelanggan : <br />
+					<form:input disabled="true" path="idpel" /> <br /><br />
+					Nama Layanan : <br />
+					<form:input path="jenisLayanan"/> <br /><br />
+					Kilo : <br />
+					<form:input path="kilo"/> <br /><br />
+					Total : <br />
+					<form:input disabled="true" path="total" /> <br /><br />
+					Tanggal Taruh : <br />
+					<form:input path="tgl_taruh" /> <br /><br />
+					<input type="submit" value="Submit">
+				</form:form>
+			</div>
+		</div>
+	</div>
+
 	<!-- Footer -->
 	<footer>
     	<div class="container">
@@ -129,11 +113,11 @@
       		</div>
     	</div>
 	</footer>
- 	 
- 	 
+
 	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js" />"></script>
     <script src="<c:url value="/resources/js/oma.js" />"></script>
     <script src="<c:url value="/resources/js/jquery/jquery.min.js" />"></script>
     <script src="<c:url value="/resources/js/jquery-easing/jquery.easing.min.js" />"></script>
+
 </body>
 </html>
