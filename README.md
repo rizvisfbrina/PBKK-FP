@@ -30,7 +30,7 @@ OMA Laundry merupakan aplikasi laundry berbasis web dengan tujuan untuk memudahk
 ```
 
 ### Use Case Diagram
-![Usecase Diagram](https://user-images.githubusercontent.com/32903576/56175523-b9dd8300-6021-11e9-994a-f5cc59510ce5.PNG)
+![updatee](https://user-images.githubusercontent.com/32873367/57984456-1d762880-7a86-11e9-96fb-66f53b008eff.PNG)
 
 ### Site Map Aplikasi
 ![Capture](https://user-images.githubusercontent.com/32903576/57984266-54e3d580-7a84-11e9-9766-f9e7b9d2ccac.PNG)
