@@ -6,7 +6,6 @@
 <html>
 <head>
 	<link rel="stylesheet" href="<c:url value="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-	<link href="<c:url value="/resources/fontawesome-free/css/all.min.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
 	<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/oma.css" />" rel="stylesheet">
@@ -17,35 +16,30 @@
   	<link href="<c:url value="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"/>" rel='stylesheet' type='text/css'>
   
 	<meta charset="ISO-8859-1">
-	
-	<title>OMA Laundry</title>
-<style>
-.verticalcenter {
-    display: table-cell;
-    height: 400px;
-    vertical-align: middle;
-}
-</style>
+	<title>Histori Pemesanan </title>
 </head>
-
 <body id="page-top">
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     	<div class="container">
-      		<a class="navbar-brand js-scroll-trigger" href="home-plg">OMA Laundry</a>
+      		<a class="navbar-brand js-scroll-trigger" href="home-adm">OMA Laundry</a>
       		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         		Menu <i class="fas fa-bars"></i>
       		</button>
       		<div class="collapse navbar-collapse" id="navbarResponsive">
         		<ul class="navbar-nav text-uppercase ml-auto">
-	          			<li class="nav-item">
-	            			<a class="nav-link js-scroll-trigger" href="editPlg">Ubah Data</a>
-	          			</li>
-				        <li class="nav-item">
-				        	<a class="nav-link js-scroll-trigger" href="pemesanan-plg?idpel=${model.idpel }">Pemesanan</a>
-				       	</li>
+				
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" href="../layanan/tambahLayanan">Layanan</a>
+          			</li>
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" href="daftarplg-adm">Pelanggan</a>
+          			</li>
+			        <li class="nav-item">
+			        	<a class="nav-link js-scroll-trigger" href="histori-adm">Histori Pemesanan</a>
+			       	</li>
 					<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="logout">${model.nama},Logout</a>
+			        	<a class="nav-link js-scroll-trigger" href="../logout">${model.nama},Logout</a>
 			       	</li>
 			    
 				</ul>
@@ -53,44 +47,39 @@
 		</div>
 	</nav>
 
-	<!-- Content -->
-	<div class="container">
-	<br>
-	<h2 style="margin-top:100px;" align="center">Daftar Pemesanan</h2>
-	<table class= "table">
-		<tr>
-		    <th>ID Pel</th>
-		    <th>Jenis Layanan</th>
-		    <th>Kilo</th>
-		    <th>Total</th>
-		    <th>Tanggal Taruh</th> 
-		    <th>Tanggal Ambil</th>
-		    <th>Status</th>
-	 	 </tr>
-	 	 <c:forEach var="value" items="${pesan }"> 
-		 	 <tr>
-		 	 	<td>${value.idpel }</td>
-		 	 	<td>${value.jenisLayanan }</td>
-		 	 	<td>${value.kilo }</td>
-		 	 	<td>${value.total }</td>
-			    <td>${value.tgl_taruh }</td>
-			    <td>${value.tgl_ambil }</td>
-			    <td>
-			    	<c:if test = "${value.status == 'Menunggu' }">
-				    	<p style="color: red;">${value.status }</p>
-				    </c:if>
-				    <c:if test = "${value.status != 'Proses' }">
-				    	<p>${value.status }</p>
-				    </c:if>
-				    <c:if test = "${value.status != 'Selesai' }">
-				    	<p>${value.status }</p>
-				    </c:if>
-			    </td>
-		 	 </tr>
-		 </c:forEach>
-	</table>
-	</div>
-	
+	<!-- Layanan -->
+	<section id="services">
+    	<div class="container">
+    			<h2>Histori Pemesanan</h2>
+				<table style="width:100%">
+					<tr>
+					    <th>ID Pelanggan</th>
+					    <th>Jenis Layanan</th> 
+					    <th>Kilo</th>
+					    <th>Total</th>
+					    <th>Tanggal Taruh</th>
+					    <th>Tanggal Ambil</th>
+					    <th>Status</th>
+					    <th>Action</th>
+					    
+					       
+				 	 </tr>
+				 	 <c:forEach var="value" items="${pesan }"> 
+					 	 <tr>
+					 	 	<th>${value.idlay }</th>
+						    <th>${value.jenisLayanan }</th>
+						    <th>${value.kilo }</th> 
+						    <th>${value.total }</th>
+						    <th>${value.tgl_taruh }</th>
+						    <th>${value.tgl_ambil }</th>
+						    <th>${value.status }</th>
+						    <th><a href="prosesStat?idpesan=${value.idpesan }">Ubah</a></th>
+					 	 </tr>
+					 </c:forEach>
+				</table>
+   
+		</div>
+	</section>
 	<!-- Footer -->
 	<footer>
     	<div class="container">

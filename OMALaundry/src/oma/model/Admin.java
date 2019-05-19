@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="admin")
@@ -18,9 +21,14 @@ public class Admin {
 	@Column(name="username")
 	private String username;
 	
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
 	@Column(name="password")
 	private String password;
 	
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	@Pattern(regexp="\\\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,4}\\\\b")
 	@Column(name="email")
 	private String email;
 	

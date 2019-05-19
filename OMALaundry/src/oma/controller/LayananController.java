@@ -1,5 +1,7 @@
 package oma.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import oma.dao.LayananDAO;
 import oma.model.Layanan;
 import oma.model.Pelanggan;
+import oma.model.Pemesanan;
 import oma.model.Admin;
 
 @Controller
@@ -49,6 +52,14 @@ public class LayananController {
 		Layanan hapus = dao.getLayanan(idlay);
 		dao.deleteLayanan(hapus);
 		return "redirect:/adm/home-adm";
+	}
+	
+	@RequestMapping("lay")
+	public ModelAndView listPesanPage() {
+		ModelAndView mav = new ModelAndView("layanan");
+		List<Layanan> lay =dao.getAllLayanan();
+		mav.addObject("lay", lay);
+		return mav;
 	}
 	
 }

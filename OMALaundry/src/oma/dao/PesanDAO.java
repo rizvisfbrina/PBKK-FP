@@ -9,6 +9,7 @@ public interface PesanDAO {
 	public void savePesan(Pemesanan pesan);
 	public List<Pemesanan> getAllPesan(int idpel);
 	public List<Pemesanan> getAllDaftarPesan();
+	public List<Pemesanan> getAllTransaksi();
 	public void updatePesan(Pemesanan pesan);
 	public Pemesanan getSpesifik(int idpesan);
 	

@@ -20,27 +20,26 @@
 	<!-- navbar -->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     	<div class="container">
-      		<a class="navbar-brand js-scroll-trigger" href="adm/home-adm">OMA Laundry</a>
+      		<a class="navbar-brand js-scroll-trigger" href="home-adm">OMA Laundry</a>
       		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         		Menu <i class="fas fa-bars"></i>
       		</button>
       		<div class="collapse navbar-collapse" id="navbarResponsive">
         		<ul class="navbar-nav text-uppercase ml-auto">
+				
           			<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="adm/home-adm">Layanan</a>
+            			<a class="nav-link js-scroll-trigger" href="../layanan/tambahLayanan">Layanan</a>
           			</li>
-	          		<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" href="adm/daftarplg-adm">Pelanggan</a>
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" href="daftarplg-adm">Pelanggan</a>
           			</li>
 			        <li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="adm/histori-adm">Laporan</a>
-			       	</li>			     	
-			     	<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="adm/lihatpemesanan">Pesanan</a>
+			        	<a class="nav-link js-scroll-trigger" href="histori-adm">Histori Pemesanan</a>
 			       	</li>
 					<li class="nav-item">
-			        	<a class="nav-link js-scroll-trigger" href="OMALaundry/logout">${model.nama},Logout</a>
+			        	<a class="nav-link js-scroll-trigger" href="../logout">${model.nama},Logout</a>
 			       	</li>
+			    
 				</ul>
 			</div>
 		</div>
@@ -48,27 +47,17 @@
 
 	<!-- content -->
 	<br /><br />
-	<h1 style="margin-top: 100px;">UBAH LAYANAN</h1>
-	<form:form action="ubahLayanan" method="POST" modelAttribute="layanan">
-	<h4>Data Layanan</h4>
-		IDLayanan : <br />
-		<form:input path="idlay" /> <br /><br />
+	<h1 style="margin-top: 100px;">TAMBAH LAYANAN</h1>
+	<form:form action="tambahLayanan" method="POST" modelAttribute="layanan">
 		Nama Layanan : <br />
-		<form:input path="nama" /> <br /><br />
+		<form:input path="nama"/> <br /><br />
 		Harga : <br />
-		<form:input path="harga" /> <br /><br />
+		<form:input path="harga"/> <br /><br />
 		Keterangan Layanan : <br />
-		<form:input path="ket" /> <br /><br />
+		<form:input path="ket"/> <br /><br />
 		Durasi : <br />
-		<form:input path="durasi" /> <br /><br />
-	<h4>Ubah Status</h4>
-
-	<!-- Status : <br />
-		<form:select path="status">
-			<form:option value="Tersedia"></form:option>
-			<form:option value="Dipinjam"></form:option>
-		</form:select><br /> -->
-		<input type="submit" value="Ubah" />
+		<form:input path="durasi"/> <br /><br />
+		<input type="submit" value="Tambah" />
 	</form:form>
 
 	<!-- Footer -->
