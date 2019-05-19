@@ -51,8 +51,6 @@
 	<h1 style="margin-top: 100px;">UBAH LAYANAN</h1>
 	<form:form action="ubahLayanan" method="POST" modelAttribute="layanan">
 	<h4>Data Layanan</h4>
-		IDLayanan : <br />
-		<form:input path="idlay" /> <br /><br />
 		Nama Layanan : <br />
 		<form:input path="nama" /> <br /><br />
 		Harga : <br />
@@ -61,13 +59,6 @@
 		<form:input path="ket" /> <br /><br />
 		Durasi : <br />
 		<form:input path="durasi" /> <br /><br />
-	<h4>Ubah Status</h4>
-
-	<!-- Status : <br />
-		<form:select path="status">
-			<form:option value="Tersedia"></form:option>
-			<form:option value="Dipinjam"></form:option>
-		</form:select><br /> -->
 		<input type="submit" value="Ubah" />
 	</form:form>
 
