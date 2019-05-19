@@ -59,7 +59,6 @@ public class AdminController {
 		return mav;
 	}
 	
-	//INI NAMPILIN DAFTAR MAHASISWA VIA PUSTAKAWAN
 	@RequestMapping("/daftarplg-adm")
 	public ModelAndView daftarplgAdmin() {
 		ModelAndView mav = new ModelAndView("daftarplg-admin");
