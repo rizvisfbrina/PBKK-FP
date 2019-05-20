@@ -83,7 +83,7 @@ public class AdminController {
 		else {
 			dao.tambahAdm(adm);
 //			ModelAndView mav = new ModelAndView("redirect:/adm/home-adm");
-			return "redirect:/home-adm";
+			return "redirect:/adm/home-adm";
 		}
 	}
 	
