@@ -18,8 +18,10 @@
 	<context:component-scan
 		base-package="oma" />
 
+	<bean id="myBeansValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+	
 	<!-- Step 4: Add support for conversion, formatting and validation support -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven validator="myBeansValidator" />
 
 	<!-- Step 5: Define Spring MVC view resolver -->
 	<bean

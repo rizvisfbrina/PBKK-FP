@@ -19,9 +19,10 @@ public class PelangganDAOImpl implements PelangganDAO {
 	
 	@Transactional
 	@Override
-	public void tambahPlg(Pelanggan plg) {
+	public String tambahPlg(Pelanggan plg) {
 		Session session = s.getCurrentSession();
 		session.save(plg);
+		return null;
 	}
 
 	@Transactional

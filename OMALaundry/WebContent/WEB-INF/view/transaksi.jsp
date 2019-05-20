@@ -51,7 +51,7 @@
 	<section id="services">
     	<div class="container">
     			<h2>Histori Pemesanan</h2>
-				<table style="width:100%">
+				<table style="width:100%" class="table">
 					<tr>
 					    <th>ID Pelanggan</th>
 					    <th>Jenis Layanan</th> 

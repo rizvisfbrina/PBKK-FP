@@ -19,6 +19,9 @@
   
 <meta charset="ISO-8859-1">
 <title>OMALaundry</title>
+<style>
+	.error{color:red}
+</style>
 </head>
 <body>
 	<!-- Navigation -->
@@ -52,6 +55,7 @@
 		modelAttribute="model">
 		Nama: <br />
 		<form:input path="nama" />
+		<form:errors path="nama" cssClass="error"/>
 		<br />
 		<br />
 		Username: <br />
@@ -64,10 +68,12 @@
 		<br />
 		Email: <br />
 		<form:input path="email" />
+		<form:errors path="email" cssClass="error"/>
 		<br />
 		<br />
 		Password : <br />
 		<form:password path="password" />
+		<form:errors path="password" cssClass="error"/>
 		<br />
 		<br />
 		<input type="submit" class="btn btn-success" value="Submit">

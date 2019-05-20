@@ -12,6 +12,8 @@ import javax.validation.constraints.Size;
 @Table(name="admin")
 public class Admin {
 	@Id
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
 	@Column(name="idadmin")
 	private int idadmin;
 	

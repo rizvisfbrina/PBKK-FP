@@ -47,8 +47,9 @@
 		</div>
 	</nav>
 	<div align="center">
+	<br/>
 	<h2 class="title" align="center">Tambah Layanan</h2>
-	<br>
+	<br/>
 	<form:form action="insertDb" method="POST" modelAttribute="layanan">
 					ID Layanan : <br />
 		<form:input path="idlay" />
@@ -70,8 +71,53 @@
 		<form:input path="durasi"/>
 		<br />
 		<br />
-		<input type="submit" value="Tambah">
+		<input type="submit" class="button btn-btn-success" value="Tambah">
 	</form:form>
 	</div>
+	
+	<footer>
+    	<div class="container">
+      		<div class="row">
+        		<div class="col-md-4">
+          			<span class="copyright">Copyright &copy; OMA Laundry 2019</span>
+        		</div>
+        		<div class="col-md-4">
+          			<ul class="list-inline social-buttons">
+            			<li class="list-inline-item">
+              				<a href="#">
+                				<i class="fab fa-twitter"></i>
+              				</a>
+            			</li>
+            			<li class="list-inline-item">
+              				<a href="#">
+                				<i class="fab fa-facebook-f"></i>
+              				</a>
+            			</li>
+            			<li class="list-inline-item">
+              				<a href="#">
+                				<i class="fab fa-linkedin-in"></i>
+              				</a>
+            			</li>
+          			</ul>
+        		</div>
+        		<div class="col-md-4">
+          			<ul class="list-inline quicklinks">
+            			<li class="list-inline-item">
+              				<a href="#">Privacy Policy</a>
+            			</li>
+            			<li class="list-inline-item">
+              				<a href="#">Terms of Use</a>
+            			</li>
+          			</ul>
+        		</div>
+      		</div>
+    	</div>
+	</footer>
+ 	 
+ 	 
+	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js" />"></script>
+    <script src="<c:url value="/resources/js/oma.js" />"></script>
+    <script src="<c:url value="/resources/js/jquery/jquery.min.js" />"></script>
+    <script src="<c:url value="/resources/js/jquery-easing/jquery.easing.min.js" />"></script>
 </body>
 </html>

@@ -58,7 +58,7 @@
 	<br/>
 	<h2 style="margin-top: 100px;" align="center">Daftar Layanan</h2>
 
-	<table class = "table">
+	<table class = "table" style = "width:60%;">
 		<tr>
 		    <th>Jenis Layanan</th>
 		    <th>Harga</th> 
@@ -71,7 +71,7 @@
 			    <td>${value.harga }</td>
 			    <td>${value.durasi }</td>
 			    <td>
-			    	<a href="../pesan/tambahPesan?idpel=${model.idpel}">Pesan</a>
+			    	<a href="../pesan/tambahPesan/${model.idpel}">Pesan</a>
 			    </td>
 		 	 </tr>
 		 </c:forEach>

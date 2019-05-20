@@ -59,10 +59,12 @@
 				modelAttribute="model">
 				ID : <br />
 				<form:input path="id" />
+				<form:errors path="id" cssClass="error"/>
 				<br />
 				<br />
 				Password : <br />
 				<form:password path="password" />
+				<form:errors path="password" cssClass="error"/>
 				<br />
 				<br />
 				Role : <br />

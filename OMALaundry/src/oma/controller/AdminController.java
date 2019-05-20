@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -74,15 +75,15 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/daftarAdmin")
-	public ModelAndView daftarBaruPtk(@Valid @ModelAttribute("adm") Admin adm, BindingResult bindres) {
+	public String daftarBaruAdm(@Valid @ModelAttribute("adm") Admin adm, BindingResult bindres) {
 		if(bindres.hasErrors()) {
-			ModelAndView mav = new ModelAndView("tambah-adm");
-			return mav;
+//			ModelAndView mav = new ModelAndView("tambah-adm");
+			return "tmbh-admin";
 		}
 		else {
 			dao.tambahAdm(adm);
-			ModelAndView mav = new ModelAndView("redirect:/adm/home-adm");
-			return mav;
+//			ModelAndView mav = new ModelAndView("redirect:/adm/home-adm");
+			return "redirect:/home-adm";
 		}
 	}
 	
@@ -167,17 +168,18 @@ public class AdminController {
 	public ModelAndView statPage(@ModelAttribute("pesan") Pemesanan pesan, @RequestParam("idpesan") int idpesan) {
 		ModelAndView mav = new ModelAndView("pesanstat-adm");
 		Pemesanan ps = pesandao.getSpesifik(idpesan);
-		mav.addObject("statusx",ps);
+		mav.addObject("pesan",ps);
 		return mav;
 	}
 	@RequestMapping("/prosesTransaksi")
-	public String ubahTransaksiPage(@ModelAttribute("statusx") Pemesanan pesan,BindingResult bind) {
+	public String ubahTransaksiPage(@ModelAttribute("pesan") Pemesanan pesan, BindingResult bind, @RequestParam("status") String status, @RequestParam("idpesan") int idpesan) {
 		if(bind.hasErrors()) {
 			return "redirect:/adm/transaksi";
 		}
 		else {
-			//Pemesanan ps = pesandao.getSpesifik(idpesan);
-			pesandao.updatePesan(pesan);		
+			Pemesanan ps = pesandao.getSpesifik(idpesan);
+			ps.setStatus(status);
+			pesandao.updatePesan(ps);		
 			return "redirect:/adm/transaksi";
 		}
 	}

@@ -56,7 +56,7 @@
 	<div class="besar" align="center">
 		<div class="header">
 			<div class="logo">
-				<h3>OMALaundry</h3>
+				<h3>Tambah Admin</h3>
 			</div>
 		</div>
 		<div class="badan">
@@ -87,7 +87,7 @@
 					<br />
 					<br />
 
-					<input type="submit" value="Tambah">
+					<input type="submit" class="button btn-btn-success" value="Tambah">
 				</form:form>
 			</div>
 		</div>

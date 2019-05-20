@@ -59,7 +59,7 @@
 			<div class="form-css">
 				<form:form action="prosesTambahPesan" method="POST" modelAttribute="model">
 					ID Pelanggan : <br />
-					<form:input disabled="true" path="idpel" /> <br /><br />
+					<form:input path="idpel" /> <br /><br />
 					Nama Layanan : <br />
 					<form:input path="jenisLayanan"/> <br /><br />
 					Kilo : <br />

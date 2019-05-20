@@ -52,16 +52,13 @@ public class PlgController {
 	private PesanDAO pesandao;
 	
 	@RequestMapping("/prosesDaftar")
-	public ModelAndView daftarBaruPlg(@Valid @ModelAttribute("model") Pelanggan model, BindingResult bindres) {
+	public String daftarBaruPlg(@Valid @ModelAttribute("model") Pelanggan model, BindingResult bindres) {
 		if(bindres.hasErrors()) {
-			ModelAndView mav = new ModelAndView("sign-up");
-			return mav;
+			return "signup-page";
 		}
 		else {
-			ModelAndView mav = new ModelAndView("redirect:home-plg");
 			dao.tambahPlg(model);
-			mav.addObject("model", model);
-			return mav;
+			return "redirect:home-plg";
 		}
 	}
 	

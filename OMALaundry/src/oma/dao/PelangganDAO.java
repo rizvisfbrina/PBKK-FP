@@ -6,7 +6,7 @@ import oma.model.Pelanggan;
 
 public interface PelangganDAO {
 
-	public void tambahPlg(Pelanggan plg);
+	public String tambahPlg(Pelanggan plg);
 	public Pelanggan getPlg(int idpel);
 	public void deletePlg(Pelanggan plg);
 	public List<Pelanggan> getAllPlg();
